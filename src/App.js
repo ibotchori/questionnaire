@@ -1,15 +1,18 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Identification from "./pages/Identification";
+import Layout from "./layout/Layout";
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/identification" element={<Identification />} />
+        <Route element={<Layout />}>
+          <Route path="/identification" element={<Identification />} />
+        </Route>
       </Routes>
-    </div>
+    </BrowserRouter>
   );
 }
 

@@ -3,15 +3,7 @@ import image from "../assets/images/identification-image.png";
 
 const Identification = () => {
   return (
-    <div className="flex flex-col min-h-screen justify-between">
-      {/* Header */}
-      <div className="px-5 sm:px-20 md:px-40 pt-10  ">
-        <div className="flex justify-between w-full border-b-2 pb-2 border-gray-500 ">
-          <p className="text-red-500 font-bold text-lg">REDBERRY</p>
-          <div className="font-bold">1/4</div>
-        </div>
-      </div>
-
+    <>
       {/* Content */}
       <div className="flex justify-center lg:justify-between px-5 md:pr-20 pb-32 lg:px-20 h-full ">
         {/* Content Text */}
@@ -78,40 +70,10 @@ const Identification = () => {
         </div>
         {/* Content Image */}
         <div className="max-w-3xl max-h-96   hidden lg:block ">
-          <img className="" src={image} />
+          <img className="" alt="main-image" src={image} />
         </div>
       </div>
-      {/* Pagination */}
-      <div className=" flex justify-center text-center bottom-0 pt-20  w-full pb-20 ">
-        <svg
-          width="148"
-          height="23"
-          viewBox="0 0 148 23"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M17 1L3 11.3158L17 21.6316"
-            stroke="#232323"
-            strokeWidth="2.4"
-          />
-        </svg>
-
-        <svg
-          width="18"
-          height="23"
-          viewBox="0 0 18 23"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M1 1L15 11.3158L1 21.6316"
-            stroke="#232323"
-            strokeWidth="2.4"
-          />
-        </svg>
-      </div>
-    </div>
+    </>
   );
 };
 
