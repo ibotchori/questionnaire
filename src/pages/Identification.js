@@ -1,5 +1,6 @@
 import React from "react";
 import image from "../assets/images/identification-image.png";
+import ContentImage from "../components/ContentImage/ContentImage";
 import Input from "../components/Input/Input";
 
 const Identification = () => {
@@ -40,9 +41,7 @@ const Identification = () => {
           </div>
         </div>
         {/* Content Image */}
-        <div className="max-w-3xl max-h-96   hidden lg:block ">
-          <img className="" alt="main-image" src={image} />
-        </div>
+        <ContentImage src={image} />
       </div>
     </>
   );
