@@ -9,9 +9,9 @@ const Covid = () => {
   return (
     <>
       {/* Content */}
-      <div className="flex justify-center lg:justify-between px-5 md:pr-20 pb-32 lg:px-20 h-full ">
+      <div className="flex justify-center lg:justify-between px-5 md:pr-20 lg:px-20 h-full ">
         {/* Content Text */}
-        <div className="flex flex-col pt-4 md:pl-20 h-full ">
+        <div className="flex flex-col pt-10 md:pl-20">
           <ThreeLabelRadioButton
             title="გაქვს გადატანილი კოვიდ 19?*"
             firstLabel="კი"

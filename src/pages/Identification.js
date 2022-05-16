@@ -7,7 +7,7 @@ const Identification = () => {
   return (
     <>
       {/* Content */}
-      <div className="flex justify-center lg:justify-between px-5 md:pr-20 pb-32 lg:px-20 h-full ">
+      <div className="flex justify-center lg:justify-between px-5 md:pr-20  lg:px-20 h-full ">
         {/* Content Text */}
         <div className="flex flex-col pt-6 md:pl-20 ">
           <Input

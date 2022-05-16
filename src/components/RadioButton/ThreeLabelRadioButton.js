@@ -8,8 +8,8 @@ const ThreeRadioButton = ({
   errorMessage,
 }) => {
   return (
-    <div className="flex justify-center flex-col pb-8">
-      <p className="pb-4 font-bold">{title}</p>
+    <div className="flex justify-center flex-col pb-8 pt-1">
+      <p className="pb-2 font-bold">{title}</p>
       <div className="form-check">
         <input
           className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
