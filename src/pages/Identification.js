@@ -11,21 +11,21 @@ const Identification = () => {
         {/* Content Text */}
         <div className="flex flex-col pt-6 md:pl-20 ">
           <Input
-            name={"სახელი"}
+            name={"სახელი*"}
             placeholder={"Your name"}
             errorMessage={
               "სახელის ველი უნდა შედგებოდეს მაქსიმუმ 255 სიმბოლოსგან"
             }
           />
           <Input
-            name={"გვარი"}
+            name={"გვარი*"}
             placeholder={"Your surname"}
             errorMessage={
               "სახელის ველი უნდა შედგებოდეს მაქსიმუმ 255 სიმბოლოსგან"
             }
           />
           <Input
-            name={"მეილი"}
+            name={"მეილი*"}
             placeholder={"Your email"}
             errorMessage={
               "სახელის ველი უნდა შედგებოდეს მაქსიმუმ 255 სიმბოლოსგან"

@@ -5,8 +5,6 @@ const Input = ({ name, placeholder, errorMessage }) => {
     <div className=" pt-6 max-w-md ">
       <label htmlFor="required-email" className="text-gray-700 flex ">
         <p className="pb-2 font-bold">{name}</p>
-
-        <span className="text-red-500 required-dot">*</span>
       </label>
       <input
         type="text"
