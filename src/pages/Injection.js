@@ -3,8 +3,7 @@ import React from "react";
 import image from "../assets/images/injection-image.png";
 import ContentImage from "../components/ContentImage/ContentImage";
 import Info from "../components/Info/Info";
-import ThreeLabelRadioButton from "../components/RadioButton/ThreeLabelRadioButton";
-import TwoLabelRadioButton from "../components/RadioButton/TwoLabelRadioButton";
+import RadioButton from "../components/RadioButton/RadioButton";
 
 const Injection = () => {
   return (
@@ -13,22 +12,25 @@ const Injection = () => {
       <div className="flex justify-center lg:justify-between px-5 md:pr-20 lg:px-20 h-full ">
         {/* Content Text */}
         <div className="flex flex-col pt-10 md:pl-20">
-          <TwoLabelRadioButton
+          <RadioButton
             title="უკვე აცრილი ხარ?*"
+            name="injection"
             firstLabel="კი"
             secondLabel="არა"
             errorMessage="აირჩიეთ ერთ-ერთი"
           />
-          <ThreeLabelRadioButton
+          <RadioButton
             title="აირჩიე რა ეტაპზე ხარ*"
+            name="stage"
             firstLabel="პირველი დოზა და დარეგისტრირებული ვარ მეორეზე"
             secondLabel="სრულად აცრილი ვარ"
             thirdLabel="პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე"
             errorMessage="აირჩიეთ ერთ-ერთი"
           />
           <Info text="რომ არ გადადო, ბარემ ახლავე დარეგისტრირდი" />
-          <ThreeLabelRadioButton
+          <RadioButton
             title="რას ელოდები?*"
+            name="wait"
             firstLabel="დარეგისტრირებული ვარ და ველოდები რიცხვს"
             secondLabel="არ ვგეგმავ"
             thirdLabel="გადატანილი მაქვს და ვგეგმავ აცრას"

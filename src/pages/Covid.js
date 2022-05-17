@@ -2,8 +2,7 @@ import React from "react";
 import image from "../assets/images/covid-image.png";
 import ContentImage from "../components/ContentImage/ContentImage";
 import Input from "../components/Input/Input";
-import ThreeLabelRadioButton from "../components/RadioButton/ThreeLabelRadioButton";
-import TwoLabelRadioButton from "../components/RadioButton/TwoLabelRadioButton";
+import RadioButton from "../components/RadioButton/RadioButton";
 
 const Covid = () => {
   return (
@@ -12,19 +11,22 @@ const Covid = () => {
       <div className="flex justify-center lg:justify-between px-5 md:pr-20 lg:px-20 h-full ">
         {/* Content Text */}
         <div className="flex flex-col pt-10 md:pl-20">
-          <ThreeLabelRadioButton
+          <RadioButton
             title="გაქვს გადატანილი კოვიდ 19?*"
+            name="covid"
             firstLabel="კი"
             secondLabel="არა"
             thirdLabel="ახლა მაქვს"
             errorMessage="აირჩიეთ ერთ-ერთი"
           />
-          <TwoLabelRadioButton
+          <RadioButton
             title="ანტისხეულების ტესტი გაქვს გაკეთებული?*"
+            name="test"
             firstLabel="კი"
             secondLabel="არა"
             errorMessage="აირჩიეთ ერთ-ერთი"
           />
+
           {/* In case yes */}
           <Input
             name={
