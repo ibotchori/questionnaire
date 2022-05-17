@@ -3,6 +3,7 @@ import Landing from "./pages/Landing";
 import Identification from "./pages/Identification";
 import Layout from "./layout/Layout";
 import Covid from "./pages/Covid";
+import Injection from "./pages/Injection";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/identification" element={<Identification />} />
           <Route path="/covid" element={<Covid />} />
+          <Route path="/injection" element={<Injection />} />
         </Route>
       </Routes>
     </BrowserRouter>
