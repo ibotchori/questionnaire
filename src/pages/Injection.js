@@ -3,7 +3,6 @@ import React from "react";
 import image from "../assets/images/injection-image.png";
 import ContentImage from "../components/ContentImage/ContentImage";
 import Info from "../components/Info/Info";
-import Input from "../components/Input/Input";
 import ThreeLabelRadioButton from "../components/RadioButton/ThreeLabelRadioButton";
 import TwoLabelRadioButton from "../components/RadioButton/TwoLabelRadioButton";
 
