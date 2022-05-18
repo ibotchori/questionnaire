@@ -16,9 +16,8 @@ const Header = () => {
       case "/injection":
         setPageNumber("3/4");
         break;
-      case "/advice":
+      default:
         setPageNumber("4/4");
-        break;
     }
   }, [location.pathname]);
 
