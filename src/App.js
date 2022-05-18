@@ -4,6 +4,7 @@ import Identification from "./pages/Identification";
 import Layout from "./layout/Layout";
 import Covid from "./pages/Covid";
 import Injection from "./pages/Injection";
+import Advice from "./pages/Advice";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/identification" element={<Identification />} />
           <Route path="/covid" element={<Covid />} />
           <Route path="/injection" element={<Injection />} />
+          <Route path="/advice" element={<Advice />} />
         </Route>
       </Routes>
     </BrowserRouter>
