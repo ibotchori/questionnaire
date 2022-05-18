@@ -15,25 +15,25 @@ const Injection = () => {
           <RadioButton
             title="უკვე აცრილი ხარ?*"
             name="injection"
-            firstLabel="კი"
-            secondLabel="არა"
+            label1="კი"
+            label2="არა"
             errorMessage="აირჩიეთ ერთ-ერთი"
           />
           <RadioButton
             title="აირჩიე რა ეტაპზე ხარ*"
             name="stage"
-            firstLabel="პირველი დოზა და დარეგისტრირებული ვარ მეორეზე"
-            secondLabel="სრულად აცრილი ვარ"
-            thirdLabel="პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე"
+            label1="პირველი დოზა და დარეგისტრირებული ვარ მეორეზე"
+            label2="სრულად აცრილი ვარ"
+            label3="პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე"
             errorMessage="აირჩიეთ ერთ-ერთი"
           />
           <Info text="რომ არ გადადო, ბარემ ახლავე დარეგისტრირდი" />
           <RadioButton
             title="რას ელოდები?*"
             name="wait"
-            firstLabel="დარეგისტრირებული ვარ და ველოდები რიცხვს"
-            secondLabel="არ ვგეგმავ"
-            thirdLabel="გადატანილი მაქვს და ვგეგმავ აცრას"
+            label1="დარეგისტრირებული ვარ და ველოდები რიცხვს"
+            label2="არ ვგეგმავ"
+            label3="გადატანილი მაქვს და ვგეგმავ აცრას"
             errorMessage="აირჩიეთ ერთ-ერთი"
           />
           <Info icon={true} />

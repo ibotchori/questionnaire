@@ -14,16 +14,16 @@ const Covid = () => {
           <RadioButton
             title="გაქვს გადატანილი კოვიდ 19?*"
             name="covid"
-            firstLabel="კი"
-            secondLabel="არა"
-            thirdLabel="ახლა მაქვს"
+            label1="კი"
+            label2="არა"
+            label3="ახლა მაქვს"
             errorMessage="აირჩიეთ ერთ-ერთი"
           />
           <RadioButton
             title="ანტისხეულების ტესტი გაქვს გაკეთებული?*"
             name="test"
-            firstLabel="კი"
-            secondLabel="არა"
+            label1="კი"
+            labe2="არა"
             errorMessage="აირჩიეთ ერთ-ერთი"
           />
 
