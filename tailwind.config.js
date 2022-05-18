@@ -4,7 +4,7 @@ module.exports = {
     extend: {
       colors: {
         button: {
-          100: "#208298;",
+          100: "#208298",
           200: "#508298",
         },
       },
