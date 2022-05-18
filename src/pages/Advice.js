@@ -9,9 +9,9 @@ const Advice = () => {
   return (
     <>
       {/* Content */}
-      <div className="flex justify-center lg:justify-between px-5 md:pr-20 lg:px-20 h-full ">
+      <div className="flex justify-center lg:justify-between px-5 md:pr-20  lg:px-20  ">
         {/* Content Text */}
-        <div className="flex flex-col pt-10 md:pl-20">
+        <div className="flex flex-col pt-12 md:pl-20">
           <p className="max-w-lg pb-8">
             რედბერის მთავარი ღირებულება ჩვენი გუნდის თითოეული წევრია. გარემო,
             რომელსაც ჩვენი თანამშრომლები ქმნით, ბევრისთვის არის და ყოფილა წლების
