@@ -3,7 +3,7 @@ import React from "react";
 const Textarea = ({ title, name }) => {
   return (
     <div className="max-w-lg">
-      <p className="pt-6 pb-4 ">{title}</p>
+      <p className="pt-6 pb-4 font-bold ">{title}</p>
       <textarea
         id="w3review"
         name={name}

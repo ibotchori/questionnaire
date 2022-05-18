@@ -43,6 +43,11 @@ const Advice = () => {
             name="environment"
             title="რას ფიქრობ არსებულ გარემოზე: რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?"
           />
+          <div className="flex justify-end py-10">
+            <button className="bg-button-100 hover:bg-button-200 text-white font-bold py-3 px-6 rounded-full w-40 ">
+              დასრულება
+            </button>
+          </div>
         </div>
         {/* Content Image */}
         <ContentImage src={image} />
