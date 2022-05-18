@@ -5,12 +5,14 @@ import Layout from "./layout/Layout";
 import Covid from "./pages/Covid";
 import Injection from "./pages/Injection";
 import Advice from "./pages/Advice";
+import Thanks from "./pages/Thanks";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/thanks" element={<Thanks />} />
         <Route element={<Layout />}>
           <Route path="/identification" element={<Identification />} />
           <Route path="/covid" element={<Covid />} />
