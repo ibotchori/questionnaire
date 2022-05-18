@@ -1,5 +1,6 @@
 import React from "react";
 import image from "../assets/images/advice-image.png";
+import Button from "../components/Buttom/Button";
 import ContentImage from "../components/ContentImage/ContentImage";
 import RadioButton from "../components/RadioButton/RadioButton";
 import Textarea from "../components/Textarea/Textarea";
@@ -44,9 +45,7 @@ const Advice = () => {
             title="რას ფიქრობ არსებულ გარემოზე: რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?"
           />
           <div className="flex justify-end py-10">
-            <button className="bg-button-100 hover:bg-button-200 text-white font-bold py-3 px-6 rounded-full w-40 ">
-              დასრულება
-            </button>
+            <Button text="დასრულება" />
           </div>
         </div>
         {/* Content Image */}
