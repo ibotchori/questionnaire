@@ -23,7 +23,7 @@ const Covid = () => {
             title="ანტისხეულების ტესტი გაქვს გაკეთებული?*"
             name="test"
             label1="კი"
-            labe2="არა"
+            label2="არა"
             errorMessage="აირჩიეთ ერთ-ერთი"
           />
 
