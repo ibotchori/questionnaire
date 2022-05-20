@@ -3,7 +3,21 @@ import image from "../assets/images/identification-image.png";
 import ContentImage from "../components/ContentImage/ContentImage";
 import Input from "../components/Input/Input";
 
+/* Redux */
+import { useSelector } from "react-redux";
+// actions
+import {
+  setFirstName,
+  setLastName,
+  setEmail,
+} from "../features/identification/identificationSlice";
+
 const Identification = () => {
+  //  Global state (Redux)
+  const { first_name, last_name, email } = useSelector(
+    (state) => state.identification
+  );
+
   return (
     <>
       {/* Content */}
@@ -13,23 +27,23 @@ const Identification = () => {
           <Input
             name={"სახელი*"}
             placeholder={"Your name"}
-            errorMessage={
-              "სახელის ველი უნდა შედგებოდეს მაქსიმუმ 255 სიმბოლოსგან"
-            }
+            errorMessage={"სახელის ველი უნდა შედგებოდეს მაქსიმუმ 2 სიმბოლოსგან"}
+            reducer={setFirstName}
+            value={first_name}
           />
           <Input
             name={"გვარი*"}
             placeholder={"Your surname"}
-            errorMessage={
-              "სახელის ველი უნდა შედგებოდეს მაქსიმუმ 255 სიმბოლოსგან"
-            }
+            errorMessage={"გვარის ველი უნდა შედგებოდეს მაქსიმუმ 2 სიმბოლოსგან"}
+            reducer={setLastName}
+            value={last_name}
           />
           <Input
             name={"მეილი*"}
             placeholder={"Your email"}
-            errorMessage={
-              "სახელის ველი უნდა შედგებოდეს მაქსიმუმ 255 სიმბოლოსგან"
-            }
+            errorMessage={"გთხოვთ მიუთითოთ მეილის ფორმატი"}
+            reducer={setEmail}
+            value={email}
           />
           {/* Content Hint */}
           <div className=" pt-20">
