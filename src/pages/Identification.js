@@ -25,21 +25,24 @@ const Identification = () => {
         {/* Content Text */}
         <div className="flex flex-col pt-6 md:pl-20 ">
           <Input
-            name={"სახელი*"}
+            title={"სახელი*"}
+            name="firstName"
             placeholder={"Your name"}
             errorMessage={"სახელის ველი უნდა შედგებოდეს მაქსიმუმ 2 სიმბოლოსგან"}
             reducer={setFirstName}
             value={first_name}
           />
           <Input
-            name={"გვარი*"}
+            title={"გვარი*"}
+            name="lastName"
             placeholder={"Your surname"}
             errorMessage={"გვარის ველი უნდა შედგებოდეს მაქსიმუმ 2 სიმბოლოსგან"}
             reducer={setLastName}
             value={last_name}
           />
           <Input
-            name={"მეილი*"}
+            title={"მეილი*"}
+            name="email"
             placeholder={"Your email"}
             errorMessage={"გთხოვთ მიუთითოთ მეილის ფორმატი"}
             reducer={setEmail}
