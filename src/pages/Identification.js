@@ -2,6 +2,11 @@ import React from "react";
 import image from "../assets/images/identification-image.png";
 import ContentImage from "../components/ContentImage/ContentImage";
 import Input from "../components/Input/Input";
+import { useDispatch } from "react-redux";
+
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { IdentificationSchema } from "../Helpers/Schema/IdentificationSchema";
 
 /* Redux */
 import { useSelector } from "react-redux";
@@ -18,36 +23,61 @@ const Identification = () => {
     (state) => state.identification
   );
 
+  const dispatch = useDispatch();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(IdentificationSchema),
+  });
+  const submitForm = (data) => {
+    console.log(data);
+    dispatch(setFirstName(data.firstName));
+    dispatch(setLastName(data.lastName));
+    dispatch(setEmail(data.email));
+    reset();
+  };
+
   return (
     <>
       {/* Content */}
       <div className="flex justify-center lg:justify-between px-5 md:pr-20  lg:px-20 h-full ">
         {/* Content Text */}
         <div className="flex flex-col pt-6 md:pl-20 ">
-          <Input
-            title={"სახელი*"}
-            name="firstName"
-            placeholder={"Your name"}
-            errorMessage={"სახელის ველი უნდა შედგებოდეს მაქსიმუმ 2 სიმბოლოსგან"}
-            reducer={setFirstName}
-            value={first_name}
-          />
-          <Input
-            title={"გვარი*"}
-            name="lastName"
-            placeholder={"Your surname"}
-            errorMessage={"გვარის ველი უნდა შედგებოდეს მაქსიმუმ 2 სიმბოლოსგან"}
-            reducer={setLastName}
-            value={last_name}
-          />
-          <Input
-            title={"მეილი*"}
-            name="email"
-            placeholder={"Your email"}
-            errorMessage={"გთხოვთ მიუთითოთ მეილის ფორმატი"}
-            reducer={setEmail}
-            value={email}
-          />
+          <form id="my-form" onSubmit={handleSubmit(submitForm)}>
+            <Input
+              title={"სახელი*"}
+              name="firstName"
+              placeholder={"Your name"}
+              errorMessage={errors.firstName?.message}
+              reducer={setFirstName}
+              value={first_name}
+              register={register}
+            />
+            <Input
+              title={"გვარი*"}
+              name="lastName"
+              placeholder={"Your surname"}
+              errorMessage={errors.lastName?.message}
+              reducer={setLastName}
+              value={last_name}
+              register={register}
+            />
+            <Input
+              title={"მეილი*"}
+              name="email"
+              placeholder={"Your email"}
+              errorMessage={errors.email?.message}
+              reducer={setEmail}
+              value={email}
+              register={register}
+            />
+            <button type="submit">Submit</button>
+          </form>
+
           {/* Content Hint */}
           <div className=" pt-20">
             <div className=" pt-6 max-w-sm border-t-2  border-gray-200 ">

@@ -3,14 +3,16 @@ import * as yup from "yup";
 export const IdentificationSchema = yup.object().shape({
   firstName: yup
     .string()
+    .matches(/^([^0-9]*)$/, "First name should not contain numbers")
     .required("First Name should be required please")
     .min(2, "First Name should be at least 2 characters")
-    .max(12, "First Name should be maximum 12 characters"),
+    .max(20, "First Name should be maximum 12 characters"),
   lastName: yup
     .string()
+    .matches(/^([^0-9]*)$/, "Last name should not contain numbers")
     .required("Last Name should be required please")
     .min(2, "Last Name should be at least 2 characters")
-    .max(12, "Last Name should be maximum 12 characters"),
+    .max(20, "Last Name should be maximum 12 characters"),
   email: yup
     .string()
     .email("Email must be a valid email")
