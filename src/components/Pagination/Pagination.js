@@ -60,8 +60,9 @@ const Pagination = () => {
           </svg>
         </div>
 
-        <div
-          onClick={nextButtonClick}
+        <button
+          type="submit"
+          form="identification-form"
           className={
             location.pathname === "/advice" ? "invisible" : "cursor-pointer"
           }
@@ -79,7 +80,7 @@ const Pagination = () => {
               strokeWidth="2.4"
             />
           </svg>
-        </div>
+        </button>
       </div>
     </div>
   );

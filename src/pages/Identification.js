@@ -3,6 +3,7 @@ import image from "../assets/images/identification-image.png";
 import ContentImage from "../components/ContentImage/ContentImage";
 import Input from "../components/Input/Input";
 import { useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -24,6 +25,7 @@ const Identification = () => {
   );
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -33,12 +35,13 @@ const Identification = () => {
   } = useForm({
     resolver: yupResolver(IdentificationSchema),
   });
+
   const submitForm = (data) => {
-    console.log(data);
     dispatch(setFirstName(data.firstName));
     dispatch(setLastName(data.lastName));
     dispatch(setEmail(data.email));
     reset();
+    navigate("/covid");
   };
 
   return (
@@ -47,7 +50,7 @@ const Identification = () => {
       <div className="flex justify-center lg:justify-between px-5 md:pr-20  lg:px-20 h-full ">
         {/* Content Text */}
         <div className="flex flex-col pt-6 md:pl-20 ">
-          <form id="my-form" onSubmit={handleSubmit(submitForm)}>
+          <form id="identification-form" onSubmit={handleSubmit(submitForm)}>
             <Input
               title={"სახელი*"}
               name="firstName"
@@ -75,7 +78,6 @@ const Identification = () => {
               value={email}
               register={register}
             />
-            <button type="submit">Submit</button>
           </form>
 
           {/* Content Hint */}
