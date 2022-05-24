@@ -1,6 +1,6 @@
 import React from "react";
 
-const ThreeRadioButton = ({
+const RadioButton = ({
   title,
   name,
   label1,
@@ -10,6 +10,13 @@ const ThreeRadioButton = ({
   label5,
   label6,
   errorMessage,
+  register,
+  value1,
+  value2,
+  value3,
+  value4,
+  value5,
+  value6,
 }) => {
   return (
     <div className="flex justify-center flex-col pb-4 pt-1">
@@ -19,7 +26,9 @@ const ThreeRadioButton = ({
           className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
           type="radio"
           name={name}
+          value={value1}
           id="flexRadioDefault1"
+          {...register(name)}
         />
         <label
           className="form-check-label inline-block text-gray-800"
@@ -33,7 +42,9 @@ const ThreeRadioButton = ({
           className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
           type="radio"
           name={name}
+          value={value2}
           id="flexRadioDefault2"
+          {...register(name)}
         />
         <label
           className="form-check-label inline-block text-gray-800"
@@ -48,7 +59,9 @@ const ThreeRadioButton = ({
             className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
             type="radio"
             name={name}
+            value={value3}
             id="flexRadioDefault3"
+            {...register(name)}
           />
           <label
             className="form-check-label inline-block text-gray-800"
@@ -64,11 +77,11 @@ const ThreeRadioButton = ({
             className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
             type="radio"
             name={name}
-            id="flexRadioDefault3"
+            id="flexRadioDefault4"
           />
           <label
             className="form-check-label inline-block text-gray-800"
-            htmlFor="flexRadioDefault3"
+            htmlFor="flexRadioDefault4"
           >
             {label4}
           </label>
@@ -80,11 +93,11 @@ const ThreeRadioButton = ({
             className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
             type="radio"
             name={name}
-            id="flexRadioDefault3"
+            id="flexRadioDefault5"
           />
           <label
             className="form-check-label inline-block text-gray-800"
-            htmlFor="flexRadioDefault3"
+            htmlFor="flexRadioDefault5"
           >
             {label5}
           </label>
@@ -96,16 +109,17 @@ const ThreeRadioButton = ({
             className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
             type="radio"
             name={name}
-            id="flexRadioDefault3"
+            id="flexRadioDefault6"
           />
           <label
             className="form-check-label inline-block text-gray-800"
-            htmlFor="flexRadioDefault3"
+            htmlFor="flexRadioDefault6"
           >
             {label6}
           </label>
         </div>
       )}
+
       <span className="text-red-500 required-dot text-xs pl-4">
         {errorMessage}
       </span>
@@ -113,4 +127,4 @@ const ThreeRadioButton = ({
   );
 };
 
-export default ThreeRadioButton;
+export default RadioButton;

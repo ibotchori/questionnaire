@@ -1,52 +1,146 @@
-import React from "react";
+import React, { useEffect } from "react";
 import image from "../assets/images/covid-image.png";
 import ContentImage from "../components/ContentImage/ContentImage";
 import Input from "../components/Input/Input";
 import RadioButton from "../components/RadioButton/RadioButton";
+import { useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { CovidSchema } from "../Helpers/Schema/CovidSchema";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+import { IdentificationSchema } from "../Helpers/Schema/IdentificationSchema";
+
+/* Redux */
+import { useSelector } from "react-redux";
+// actions
+import {
+  setCovid,
+  setTest,
+  setCovidPeriod,
+  setTestDate,
+  setTestQuantity,
+} from "../features/covid/covidSlice";
 
 const Covid = () => {
+  //  Global state (Redux)
+  const { covid, test, covidPeriod, testDate, testQuantity } = useSelector(
+    (state) => state.covid
+  );
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  /* Use Form */
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    watch,
+  } = useForm({
+    resolver: yupResolver(CovidSchema),
+  });
+
+  const submitForm = (data) => {
+    dispatch(setCovid(data.covid));
+    dispatch(setTest(data.test));
+    dispatch(setCovidPeriod(data.covidPeriod));
+    dispatch(setTestDate(data.testDate));
+    dispatch(setTestQuantity(data.testQuantity));
+    if (watch("covid") === "არა" || watch("covid") === "ახლა მაქვს") {
+      dispatch(setTest(null));
+      dispatch(setCovidPeriod(""));
+      dispatch(setTestDate(""));
+      dispatch(setTestQuantity(""));
+    }
+
+    if (watch("test") === "კი") {
+      dispatch(setCovidPeriod(""));
+    }
+    if (watch("test") === "არა") {
+      dispatch(setTestDate(""));
+      dispatch(setTestQuantity(""));
+    }
+    // reset();
+    // navigate("/injection");
+
+    console.log(data);
+  };
   return (
     <>
       {/* Content */}
       <div className="flex justify-center lg:justify-between px-5 md:pr-20 lg:px-20 h-full ">
         {/* Content Text */}
         <div className="flex flex-col pt-10 md:pl-20">
-          <RadioButton
-            title="გაქვს გადატანილი კოვიდ 19?*"
-            name="covid"
-            label1="კი"
-            label2="არა"
-            label3="ახლა მაქვს"
-            errorMessage="აირჩიეთ ერთ-ერთი"
-          />
-          <RadioButton
-            title="ანტისხეულების ტესტი გაქვს გაკეთებული?*"
-            name="test"
-            label1="კი"
-            label2="არა"
-            errorMessage="აირჩიეთ ერთ-ერთი"
-          />
+          <form id="covid-form" onSubmit={handleSubmit(submitForm)}>
+            <RadioButton
+              title="გაქვს გადატანილი კოვიდ 19?*"
+              name="covid"
+              label1="კი"
+              label2="არა"
+              label3="ახლა მაქვს"
+              errorMessage={errors.covid?.message}
+              register={register}
+              value1="კი"
+              value2="არა"
+              value3="ახლა მაქვს"
+              checked1={covid === "კი"}
+              checked2={covid === "არა"}
+            />
+            {watch("covid") === "კი" && (
+              <>
+                <RadioButton
+                  title="ანტისხეულების ტესტი გაქვს გაკეთებული?*"
+                  name="test"
+                  label1="კი"
+                  label2="არა"
+                  value1="კი"
+                  value2="არა"
+                  errorMessage={errors.test?.message}
+                  register={register}
+                />
+              </>
+            )}
 
-          {/* In case yes */}
-          <Input
-            name={
-              "თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა*"
-            }
-            placeholder={"რიცხვი"}
-            errorMessage={"გთხოვთ მიუთითეთ რიცხვი"}
-          />
-          <Input
-            placeholder={"ანტისხეულების რაოდენობა"}
-            errorMessage={"გთხოვთ მიუთითეთ რაოდენობა"}
-          />
-          {/* In case no */}
-          <Input
-            name={
-              "მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*"
-            }
-            placeholder={"დდ/თთ/წწ"}
-            errorMessage={"გთხოვთ მიუთითეთ პერიოდი"}
-          />
+            {watch("test") === "არა" && watch("covid") === "კი" ? (
+              <Input
+                title={
+                  "მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*"
+                }
+                name="covidPeriod"
+                placeholder={"დდ/თთ/წწ"}
+                errorMessage={errors.covidPeriod?.message}
+                //errorMessage={"გთხოვთ მიუთითეთ პერიოდი"}
+                register={register}
+              />
+            ) : (
+              ""
+            )}
+
+            {watch("test") === "კი" && watch("covid") === "კი" ? (
+              <>
+                <Input
+                  title={
+                    "თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა*"
+                  }
+                  name="testDate"
+                  placeholder={"რიცხვი"}
+                  errorMessage={errors.testDate?.message}
+                  register={register}
+                />
+                <Input
+                  name="testQuantity"
+                  placeholder={"ანტისხეულების რაოდენობა"}
+                  errorMessage={errors.testQuantity?.message}
+                  register={register}
+                />
+              </>
+            ) : (
+              ""
+            )}
+          </form>
         </div>
         {/* Content Image */}
         <ContentImage src={image} />

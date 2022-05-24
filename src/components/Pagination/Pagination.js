@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Pagination = () => {
@@ -34,6 +34,23 @@ const Pagination = () => {
     }
   };
 
+  // generate form id by location
+  const [formId, setFormId] = useState("");
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/identification":
+        setFormId("identification-form");
+        break;
+
+      case "/covid":
+        setFormId("covid-form");
+        break;
+
+      default:
+        break;
+    }
+  }, [location]);
+
   return (
     <div className=" flex justify-center  text-center bottom-0 pt-20  w-full pb-20 ">
       <div className="flex  w-32  justify-between">
@@ -62,7 +79,7 @@ const Pagination = () => {
 
         <button
           type="submit"
-          form="identification-form"
+          form={formId}
           className={
             location.pathname === "/advice" ? "invisible" : "cursor-pointer"
           }
