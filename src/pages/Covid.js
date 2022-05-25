@@ -43,31 +43,37 @@ const Covid = () => {
     resolver: yupResolver(CovidSchema),
   });
 
-  const submitForm = (data) => {
-    dispatch(setCovid(data.covid));
-    dispatch(setTest(data.test));
-    dispatch(setCovidPeriod(data.covidPeriod));
-    dispatch(setTestDate(data.testDate));
-    dispatch(setTestQuantity(data.testQuantity));
+  useEffect(() => {
     if (watch("covid") === "არა" || watch("covid") === "ახლა მაქვს") {
-      dispatch(setTest(null));
-      dispatch(setCovidPeriod(""));
-      dispatch(setTestDate(""));
-      dispatch(setTestQuantity(""));
+      dispatch(setCovid(watch("covid")));
+      dispatch(setTest(watch("")));
+      dispatch(setCovidPeriod(watch("")));
+      dispatch(setTestDate(watch("")));
+      dispatch(setTestQuantity(watch("")));
+    } else if (watch("test") === "კი" && watch("covid") === "კი") {
+      dispatch(setCovid(watch("covid")));
+      dispatch(setTest(watch("test")));
+      dispatch(setTestDate(watch("testDate")));
+      dispatch(setTestQuantity(watch("testQuantity")));
+      dispatch(setCovidPeriod(watch("")));
+    } else if (watch("test") === "არა" && watch("covid") === "კი") {
+      dispatch(setCovid(watch("covid")));
+      dispatch(setTest(watch("test")));
+      dispatch(setCovidPeriod(watch("covidPeriod")));
+      dispatch(setTestDate(watch("")));
+      dispatch(setTestQuantity(watch("")));
+    } else {
+      dispatch(setCovid(watch("covid")));
     }
+  }, [watch()]);
 
-    if (watch("test") === "კი") {
-      dispatch(setCovidPeriod(""));
-    }
-    if (watch("test") === "არა") {
-      dispatch(setTestDate(""));
-      dispatch(setTestQuantity(""));
-    }
-    // reset();
-    // navigate("/injection");
+  const submitForm = (data) => {
+    reset();
+    navigate("/injection");
 
     console.log(data);
   };
+
   return (
     <>
       {/* Content */}
@@ -78,9 +84,6 @@ const Covid = () => {
             <RadioButton
               title="გაქვს გადატანილი კოვიდ 19?*"
               name="covid"
-              label1="კი"
-              label2="არა"
-              label3="ახლა მაქვს"
               errorMessage={errors.covid?.message}
               register={register}
               value1="კი"
@@ -88,23 +91,26 @@ const Covid = () => {
               value3="ახლა მაქვს"
               checked1={covid === "კი"}
               checked2={covid === "არა"}
+              checked3={covid === "ახლა მაქვს"}
             />
-            {watch("covid") === "კი" && (
+            {covid === "კი" ? (
               <>
                 <RadioButton
                   title="ანტისხეულების ტესტი გაქვს გაკეთებული?*"
                   name="test"
-                  label1="კი"
-                  label2="არა"
-                  value1="კი"
-                  value2="არა"
                   errorMessage={errors.test?.message}
                   register={register}
+                  value1="კი"
+                  value2="არა"
+                  checked1={test === "კი"}
+                  checked2={test === "არა"}
                 />
               </>
+            ) : (
+              ""
             )}
 
-            {watch("test") === "არა" && watch("covid") === "კი" ? (
+            {test === "არა" && covid === "კი" ? (
               <Input
                 title={
                   "მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*"
@@ -114,12 +120,13 @@ const Covid = () => {
                 errorMessage={errors.covidPeriod?.message}
                 //errorMessage={"გთხოვთ მიუთითეთ პერიოდი"}
                 register={register}
+                value={covidPeriod}
               />
             ) : (
               ""
             )}
 
-            {watch("test") === "კი" && watch("covid") === "კი" ? (
+            {test === "კი" && covid === "კი" ? (
               <>
                 <Input
                   title={
@@ -129,12 +136,14 @@ const Covid = () => {
                   placeholder={"რიცხვი"}
                   errorMessage={errors.testDate?.message}
                   register={register}
+                  value={testDate}
                 />
                 <Input
                   name="testQuantity"
                   placeholder={"ანტისხეულების რაოდენობა"}
                   errorMessage={errors.testQuantity?.message}
                   register={register}
+                  value={testQuantity}
                 />
               </>
             ) : (

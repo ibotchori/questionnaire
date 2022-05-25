@@ -17,6 +17,9 @@ const RadioButton = ({
   value4,
   value5,
   value6,
+  checked1,
+  checked2,
+  checked3,
 }) => {
   return (
     <div className="flex justify-center flex-col pb-4 pt-1">
@@ -29,12 +32,13 @@ const RadioButton = ({
           value={value1}
           id="flexRadioDefault1"
           {...register(name)}
+          defaultChecked={checked1}
         />
         <label
           className="form-check-label inline-block text-gray-800"
           htmlFor="flexRadioDefault1"
         >
-          {label1}
+          {value1}
         </label>
       </div>
       <div className="form-check">
@@ -45,15 +49,16 @@ const RadioButton = ({
           value={value2}
           id="flexRadioDefault2"
           {...register(name)}
+          defaultChecked={checked2}
         />
         <label
           className="form-check-label inline-block text-gray-800"
           htmlFor="flexRadioDefault2"
         >
-          {label2}
+          {value2}
         </label>
       </div>
-      {label3 && (
+      {value3 && (
         <div className="form-check">
           <input
             className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
@@ -62,12 +67,13 @@ const RadioButton = ({
             value={value3}
             id="flexRadioDefault3"
             {...register(name)}
+            defaultChecked={checked3}
           />
           <label
             className="form-check-label inline-block text-gray-800"
             htmlFor="flexRadioDefault3"
           >
-            {label3}
+            {value3}
           </label>
         </div>
       )}
