@@ -51,6 +51,7 @@ const Pagination = () => {
         break;
 
       default:
+        setFormId("advice-form");
         break;
     }
   }, [location]);
