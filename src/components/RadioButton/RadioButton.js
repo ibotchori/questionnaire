@@ -81,6 +81,9 @@ const RadioButton = ({
             type="radio"
             name={name}
             id="flexRadioDefault4"
+            value={value4}
+            {...register(name)}
+            defaultChecked={checked4}
           />
           <label
             className="form-check-label inline-block text-gray-800"
@@ -97,6 +100,9 @@ const RadioButton = ({
             type="radio"
             name={name}
             id="flexRadioDefault5"
+            value={value5}
+            {...register(name)}
+            defaultChecked={checked5}
           />
           <label
             className="form-check-label inline-block text-gray-800"
@@ -113,6 +119,9 @@ const RadioButton = ({
             type="radio"
             name={name}
             id="flexRadioDefault6"
+            value={value6}
+            {...register(name)}
+            defaultChecked={checked6}
           />
           <label
             className="form-check-label inline-block text-gray-800"
