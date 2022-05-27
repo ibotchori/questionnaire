@@ -3,12 +3,6 @@ import React from "react";
 const RadioButton = ({
   title,
   name,
-  label1,
-  label2,
-  label3,
-  label4,
-  label5,
-  label6,
   errorMessage,
   register,
   value1,
@@ -20,6 +14,9 @@ const RadioButton = ({
   checked1,
   checked2,
   checked3,
+  checked4,
+  checked5,
+  checked6,
 }) => {
   return (
     <div className="flex justify-center flex-col pb-4 pt-1">
@@ -77,7 +74,7 @@ const RadioButton = ({
           </label>
         </div>
       )}
-      {label4 && (
+      {value4 && (
         <div className="form-check">
           <input
             className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
@@ -89,11 +86,11 @@ const RadioButton = ({
             className="form-check-label inline-block text-gray-800"
             htmlFor="flexRadioDefault4"
           >
-            {label4}
+            {value4}
           </label>
         </div>
       )}
-      {label5 && (
+      {value5 && (
         <div className="form-check">
           <input
             className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
@@ -105,11 +102,11 @@ const RadioButton = ({
             className="form-check-label inline-block text-gray-800"
             htmlFor="flexRadioDefault5"
           >
-            {label5}
+            {value5}
           </label>
         </div>
       )}
-      {label6 && (
+      {value6 && (
         <div className="form-check">
           <input
             className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
@@ -121,7 +118,7 @@ const RadioButton = ({
             className="form-check-label inline-block text-gray-800"
             htmlFor="flexRadioDefault6"
           >
-            {label6}
+            {value6}
           </label>
         </div>
       )}
