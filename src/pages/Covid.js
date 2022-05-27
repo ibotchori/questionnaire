@@ -46,22 +46,22 @@ const Covid = () => {
   useEffect(() => {
     if (watch("covid") === "არა" || watch("covid") === "ახლა მაქვს") {
       dispatch(setCovid(watch("covid")));
-      dispatch(setTest(watch("")));
-      dispatch(setCovidPeriod(watch("")));
-      dispatch(setTestDate(watch("")));
-      dispatch(setTestQuantity(watch("")));
+      dispatch(setTest(null));
+      dispatch(setCovidPeriod(""));
+      dispatch(setTestDate(""));
+      dispatch(setTestQuantity(""));
     } else if (watch("test") === "კი" && watch("covid") === "კი") {
       dispatch(setCovid(watch("covid")));
       dispatch(setTest(watch("test")));
       dispatch(setTestDate(watch("testDate")));
       dispatch(setTestQuantity(watch("testQuantity")));
-      dispatch(setCovidPeriod(watch("")));
+      dispatch(setCovidPeriod(""));
     } else if (watch("test") === "არა" && watch("covid") === "კი") {
       dispatch(setCovid(watch("covid")));
       dispatch(setTest(watch("test")));
       dispatch(setCovidPeriod(watch("covidPeriod")));
-      dispatch(setTestDate(watch("")));
-      dispatch(setTestQuantity(watch("")));
+      dispatch(setTestDate(""));
+      dispatch(setTestQuantity(""));
     } else {
       dispatch(setCovid(watch("covid")));
     }
