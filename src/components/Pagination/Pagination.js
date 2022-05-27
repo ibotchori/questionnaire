@@ -46,6 +46,10 @@ const Pagination = () => {
         setFormId("covid-form");
         break;
 
+      case "/injection":
+        setFormId("injection-form");
+        break;
+
       default:
         break;
     }
