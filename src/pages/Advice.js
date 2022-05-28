@@ -19,7 +19,11 @@ import {
   setOffice,
   setAssembly,
   setEnvironment,
+  resetAdvice,
 } from "../features/advice/adviceSlice";
+import { resetCovid } from "../features/covid/covidSlice";
+import { resetInjection } from "../features/injection/injectionSlice";
+import { resetIdentification } from "../features/identification/identificationSlice";
 
 const Advice = () => {
   //  Global state (Redux)
@@ -50,6 +54,10 @@ const Advice = () => {
 
   const submitForm = () => {
     reset();
+    dispatch(resetIdentification());
+    dispatch(resetCovid());
+    dispatch(resetInjection());
+    dispatch(resetAdvice());
     navigate("/thanks");
   };
   return (

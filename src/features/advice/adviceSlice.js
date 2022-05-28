@@ -23,11 +23,22 @@ export const adviceSlice = createSlice({
     setEnvironment: (state, action) => {
       state.environment = action.payload;
     },
+    resetAdvice: (state) => {
+      state.online = null;
+      state.office = null;
+      state.assembly = "";
+      state.environment = "";
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setOnline, setOffice, setAssembly, setEnvironment } =
-  adviceSlice.actions;
+export const {
+  setOnline,
+  setOffice,
+  setAssembly,
+  setEnvironment,
+  resetAdvice,
+} = adviceSlice.actions;
 
 export default adviceSlice.reducer;

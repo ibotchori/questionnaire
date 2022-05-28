@@ -19,10 +19,16 @@ export const injectionSlice = createSlice({
     setWaitingFor: (state, action) => {
       state.waitingFor = action.payload;
     },
+    resetInjection: (state) => {
+      state.injection = null;
+      state.stage = null;
+      state.waitingFor = null;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setInjection, setStage, setWaitingFor } = injectionSlice.actions;
+export const { setInjection, setStage, setWaitingFor, resetInjection } =
+  injectionSlice.actions;
 
 export default injectionSlice.reducer;

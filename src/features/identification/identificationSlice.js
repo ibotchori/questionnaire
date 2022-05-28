@@ -19,11 +19,16 @@ export const identificationSlice = createSlice({
     setEmail: (state, action) => {
       state.email = action.payload;
     },
+    resetIdentification: (state) => {
+      state.first_name = "";
+      state.last_name = "";
+      state.email = "";
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setFirstName, setLastName, setEmail } =
+export const { setFirstName, setLastName, setEmail, resetIdentification } =
   identificationSlice.actions;
 
 export default identificationSlice.reducer;

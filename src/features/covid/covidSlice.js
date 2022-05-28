@@ -27,6 +27,13 @@ export const covidSlice = createSlice({
     setTestQuantity: (state, action) => {
       state.testQuantity = action.payload;
     },
+    resetCovid: (state) => {
+      state.covid = null;
+      state.test = null;
+      state.covidPeriod = "";
+      state.testDate = "";
+      state.testQuantity = "";
+    },
   },
 });
 
@@ -37,6 +44,7 @@ export const {
   setCovidPeriod,
   setTestDate,
   setTestQuantity,
+  resetCovid,
 } = covidSlice.actions;
 
 export default covidSlice.reducer;
