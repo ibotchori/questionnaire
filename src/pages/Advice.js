@@ -23,8 +23,8 @@ import {
 
 const Advice = () => {
   //  Global state (Redux)
-  const { covid, test, covidPeriod, testDate, testQuantity } = useSelector(
-    (state) => state.covid
+  const { online, office, assembly, environment } = useSelector(
+    (state) => state.advice
   );
 
   const dispatch = useDispatch();
@@ -42,34 +42,15 @@ const Advice = () => {
   });
 
   useEffect(() => {
-    // if (watch("covid") === "არა" || watch("covid") === "ახლა მაქვს") {
-    //   dispatch(setCovid(watch("covid")));
-    //   dispatch(setTest(null));
-    //   dispatch(setCovidPeriod(""));
-    //   dispatch(setTestDate(""));
-    //   dispatch(setTestQuantity(""));
-    // } else if (watch("test") === "კი" && watch("covid") === "კი") {
-    //   dispatch(setCovid(watch("covid")));
-    //   dispatch(setTest(watch("test")));
-    //   dispatch(setTestDate(watch("testDate")));
-    //   dispatch(setTestQuantity(watch("testQuantity")));
-    //   dispatch(setCovidPeriod(""));
-    // } else if (watch("test") === "არა" && watch("covid") === "კი") {
-    //   dispatch(setCovid(watch("covid")));
-    //   dispatch(setTest(watch("test")));
-    //   dispatch(setCovidPeriod(watch("covidPeriod")));
-    //   dispatch(setTestDate(""));
-    //   dispatch(setTestQuantity(""));
-    // } else {
-    //   dispatch(setCovid(watch("covid")));
-    // }
+    dispatch(setOnline(watch("online")));
+    dispatch(setOffice(+watch("office")));
+    dispatch(setAssembly(watch("assembly")));
+    dispatch(setEnvironment(watch("environment")));
   }, [watch()]);
 
-  const submitForm = (data) => {
+  const submitForm = () => {
     reset();
-    // navigate("/thanks");
-
-    console.log(data);
+    navigate("/thanks");
   };
   return (
     <>
@@ -93,6 +74,10 @@ const Advice = () => {
               value2="კვირაში ერთხელ"
               value3="ორ კვირაში ერთხელ"
               value4="თვეში ერთხელ"
+              checked1={online === "კვირაში ორჯერ"}
+              checked2={online === "კვირაში ერთხელ"}
+              checked3={online === "ორ კვირაში ერთხელ"}
+              checked4={online === "თვეში ერთხელ"}
               errorMessage={errors.online?.message}
               register={register}
             />
@@ -105,17 +90,25 @@ const Advice = () => {
               value4={3}
               value5={4}
               value6={5}
+              checked1={office === 0}
+              checked2={office === 1}
+              checked3={office === 2}
+              checked4={office === 3}
+              checked5={office === 4}
+              checked6={office === 5}
               errorMessage={errors.office?.message}
               register={register}
             />
             <Textarea
               name="assembly"
               title="რას ფიქრობ ფიზიკურ შეკრებაზე?"
+              value={assembly}
               register={register}
             />
             <Textarea
               name="environment"
               title="რას ფიქრობ არსებულ გარემოზე: რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?"
+              value={environment}
               register={register}
             />
             <div className="flex justify-end py-10">

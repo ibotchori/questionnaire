@@ -12,16 +12,16 @@ export const adviceSlice = createSlice({
   initialState,
   reducers: {
     setOnline: (state, action) => {
-      state.covid = action.payload;
+      state.online = action.payload;
     },
     setOffice: (state, action) => {
-      state.test = action.payload;
+      state.office = action.payload;
     },
     setAssembly: (state, action) => {
-      state.covidPeriod = action.payload;
+      state.assembly = action.payload;
     },
     setEnvironment: (state, action) => {
-      state.testDate = action.payload;
+      state.environment = action.payload;
     },
   },
 });
