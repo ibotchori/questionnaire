@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  first_name: "",
-  last_name: "",
+  firstName: "",
+  lastName: "",
   email: "",
 };
 
@@ -11,17 +11,17 @@ export const identificationSlice = createSlice({
   initialState,
   reducers: {
     setFirstName: (state, action) => {
-      state.first_name = action.payload;
+      state.firstName = action.payload;
     },
     setLastName: (state, action) => {
-      state.last_name = action.payload;
+      state.lastName = action.payload;
     },
     setEmail: (state, action) => {
       state.email = action.payload;
     },
     resetIdentification: (state) => {
-      state.first_name = "";
-      state.last_name = "";
+      state.firstName = "";
+      state.lastName = "";
       state.email = "";
     },
   },
