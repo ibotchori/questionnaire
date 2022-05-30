@@ -28,7 +28,7 @@ const Input = ({
         placeholder={placeholder}
         {...register(name)}
       />
-      <span className="text-red-500 required-dot text-xs pl-4">
+      <span className="text-red-500 required-dot text-xs pl-4 block h-1">
         {errorMessage}
       </span>
     </div>
