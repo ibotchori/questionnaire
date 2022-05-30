@@ -31,6 +31,10 @@ const Input = ({
       <span className="text-red-500 required-dot text-xs pl-4 block h-1">
         {errorMessage}
       </span>
+      <span className="text-red-500 required-dot text-xs pl-4 block h-1 invisible">
+        hidden text hidden text hidden text hidden text hidden text hidden text
+        hidden text
+      </span>
     </div>
   );
 };
