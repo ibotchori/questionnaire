@@ -1,12 +1,12 @@
 import React from "react";
-import image from "../assets/images/identification-image.png";
-import ContentImage from "../components/ContentImage/ContentImage";
-import Input from "../components/Input/Input";
+import image from "../../assets/images/identification-image.png";
+import ContentImage from "../../components/ContentImage/ContentImage";
+import Input from "../../components/Input/Input";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { IdentificationSchema } from "../Helpers/Schema/IdentificationSchema";
+import { IdentificationSchema } from "../../Helpers/Schema/IdentificationSchema";
 
 /* Redux */
 import { useSelector } from "react-redux";
@@ -15,7 +15,7 @@ import {
   setFirstName,
   setLastName,
   setEmail,
-} from "../features/identification/identificationSlice";
+} from "../../features/identification/identificationSlice";
 
 const Identification = () => {
   //  Global state (Redux)

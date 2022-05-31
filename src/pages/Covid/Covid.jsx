@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import image from "../assets/images/covid-image.png";
-import ContentImage from "../components/ContentImage/ContentImage";
-import Input from "../components/Input/Input";
-import RadioButton from "../components/RadioButton/RadioButton";
+import image from "../../assets/images/covid-image.png";
+import ContentImage from "../../components/ContentImage/ContentImage";
+import Input from "../../components/Input/Input";
+import RadioButton from "../../components/RadioButton/RadioButton";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { CovidSchema } from "../Helpers/Schema/CovidSchema";
+import { CovidSchema } from "../../Helpers/Schema/CovidSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 /* Redux */
@@ -18,7 +18,7 @@ import {
   setCovidPeriod,
   setTestDate,
   setTestQuantity,
-} from "../features/covid/covidSlice";
+} from "../../features/covid/covidSlice";
 
 const Covid = () => {
   //  Global state (Redux)
