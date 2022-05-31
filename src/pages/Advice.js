@@ -62,7 +62,7 @@ const Advice = () => {
   return (
     <>
       {/* Content */}
-      <div className="flex justify-center lg:justify-between px-5 md:pr-20  lg:px-20  ">
+      <div className="flex justify-start lg:justify-between px-5 sm:px-20 md:px-30 md:pr-20  lg:px-20  ">
         {/* Content Text */}
         <div className="flex flex-col pt-12 md:pl-20">
           <form id="advice-form" onSubmit={handleSubmit(submitForm)}>

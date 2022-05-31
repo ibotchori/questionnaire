@@ -74,7 +74,7 @@ const Covid = () => {
   return (
     <>
       {/* Content */}
-      <div className="flex justify-center lg:justify-between px-5 md:pr-20 lg:px-20 h-full ">
+      <div className="flex justify-start lg:justify-between px-5 sm:px-20 md:px-30 md:pr-20 h-full ">
         {/* Content Text */}
         <div className="flex flex-col pt-10 md:pl-20">
           <form id="covid-form" onSubmit={handleSubmit(submitForm)}>
