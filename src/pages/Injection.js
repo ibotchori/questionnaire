@@ -1,16 +1,13 @@
 import React, { useEffect } from "react";
-
 import image from "../assets/images/injection-image.png";
 import ContentImage from "../components/ContentImage/ContentImage";
 import Info from "../components/Info/Info";
 import RadioButton from "../components/RadioButton/RadioButton";
-
 import { useDispatch } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { InjectionSchema } from "../Helpers/Schema/InjectionSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 
 /* Redux */
 import { useSelector } from "react-redux";

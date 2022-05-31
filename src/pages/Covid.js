@@ -4,13 +4,10 @@ import ContentImage from "../components/ContentImage/ContentImage";
 import Input from "../components/Input/Input";
 import RadioButton from "../components/RadioButton/RadioButton";
 import { useDispatch } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { CovidSchema } from "../Helpers/Schema/CovidSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-
-import { IdentificationSchema } from "../Helpers/Schema/IdentificationSchema";
 
 /* Redux */
 import { useSelector } from "react-redux";

@@ -5,11 +5,10 @@ import ContentImage from "../components/ContentImage/ContentImage";
 import RadioButton from "../components/RadioButton/RadioButton";
 import Textarea from "../components/Textarea/Textarea";
 import { useDispatch } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AdviceSchema } from "../Helpers/Schema/AdviceSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 
 /* Redux */
 import { useSelector } from "react-redux";
