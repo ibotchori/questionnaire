@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Header from "../components/Header/Header";
-import Pagination from "../components/Pagination/Pagination";
+import Header from "./components/Header/Header";
+import Pagination from "./components/Pagination/Pagination";
 
 const Layout = () => {
   return (
