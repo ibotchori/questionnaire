@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import image from "../assets/images/advice-image.png";
-import Button from "../components/Button/Button";
+import Button from "../components/Button/Button.jsx";
 import ContentImage from "../components/ContentImage/ContentImage";
 import RadioButton from "../components/RadioButton/RadioButton";
 import Textarea from "../components/Textarea/Textarea";
