@@ -1,11 +1,13 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Landing from "./pages/Landing/Landing";
-import Identification from "./pages/Identification/Identification";
+import {
+  Identification,
+  Covid,
+  Injection,
+  Advice,
+  Thanks,
+  Landing,
+} from "./pages";
 import Layout from "./layout/Layout";
-import Covid from "./pages/Covid/Covid";
-import Injection from "./pages/Injection/Injection";
-import Advice from "./pages/Advice/Advice";
-import Thanks from "./pages/Thanks/Thanks";
 
 function App() {
   return (
