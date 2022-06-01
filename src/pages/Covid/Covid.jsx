@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import ContentImage from "components/ContentImage/ContentImage";
-import Input from "components/Input/Input";
-import RadioButton from "components/RadioButton/RadioButton";
+import { RadioButton, ContentImage, Input } from "components";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";

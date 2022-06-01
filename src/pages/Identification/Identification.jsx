@@ -1,6 +1,5 @@
 import React from "react";
-import ContentImage from "components/ContentImage/ContentImage";
-import Input from "components/Input/Input";
+import { ContentImage, Input } from "components";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
