@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import image from "../../assets/images/injection-image.png";
-import ContentImage from "../../components/ContentImage/ContentImage";
+import image from "assets/images/injection-image.png";
+import ContentImage from "components/ContentImage/ContentImage";
 import Info from "./components/Info/Info";
-import RadioButton from "../../components/RadioButton/RadioButton";
+import RadioButton from "components/RadioButton/RadioButton";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { InjectionSchema } from "../../Helpers/Schema/InjectionSchema";
+import { InjectionSchema } from "Helpers/Schema/InjectionSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 /* Redux */
@@ -16,7 +16,7 @@ import {
   setInjection,
   setStage,
   setWaitingFor,
-} from "../../features/injection/injectionSlice";
+} from "features/injection/injectionSlice";
 
 const Injection = () => {
   //  Global state (Redux)

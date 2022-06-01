@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import image from "../../assets/images/advice-image.png";
+import image from "assets/images/advice-image.png";
 import Button from "./components/Button/Button.jsx";
-import ContentImage from "../../components/ContentImage/ContentImage";
-import RadioButton from "../../components/RadioButton/RadioButton";
+import ContentImage from "components/ContentImage/ContentImage";
+import RadioButton from "components/RadioButton/RadioButton";
 import Textarea from "./components/Textarea/Textarea";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { AdviceSchema } from "../../Helpers/Schema/AdviceSchema";
+import { AdviceSchema } from "Helpers/Schema/AdviceSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 /* Redux */
@@ -19,10 +19,10 @@ import {
   setAssembly,
   setEnvironment,
   resetAdvice,
-} from "../../features/advice/adviceSlice";
-import { resetCovid } from "../../features/covid/covidSlice";
-import { resetInjection } from "../../features/injection/injectionSlice";
-import { resetIdentification } from "../../features/identification/identificationSlice";
+} from "features/advice/adviceSlice";
+import { resetCovid } from "features/covid/covidSlice";
+import { resetInjection } from "features/injection/injectionSlice";
+import { resetIdentification } from "features/identification/identificationSlice";
 
 const Advice = () => {
   //  Global state (Redux)
