@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import image from "assets/images/covid-image.png";
 import ContentImage from "components/ContentImage/ContentImage";
 import Input from "components/Input/Input";
 import RadioButton from "components/RadioButton/RadioButton";
@@ -8,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { CovidSchema } from "Helpers/Schema/CovidSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { covidIMG } from "assets/images";
 
 /* Redux */
 import { useSelector } from "react-redux";
@@ -149,7 +149,7 @@ const Covid = () => {
           </form>
         </div>
         {/* Content Image */}
-        <ContentImage src={image} />
+        <ContentImage src={covidIMG} />
       </div>
     </>
   );

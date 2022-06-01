@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import image from "assets/images/advice-image.png";
 import Button from "./components/Button/Button.jsx";
 import ContentImage from "components/ContentImage/ContentImage";
 import RadioButton from "components/RadioButton/RadioButton";
@@ -9,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AdviceSchema } from "Helpers/Schema/AdviceSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { adviceIMG } from "assets/images";
 
 /* Redux */
 import { useSelector } from "react-redux";
@@ -124,7 +124,7 @@ const Advice = () => {
           </form>
         </div>
         {/* Content Image */}
-        <ContentImage src={image} />
+        <ContentImage src={adviceIMG} />
       </div>
     </>
   );

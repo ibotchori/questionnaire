@@ -1,5 +1,4 @@
 import React from "react";
-import image from "assets/images/identification-image.png";
 import ContentImage from "components/ContentImage/ContentImage";
 import Input from "components/Input/Input";
 import { useDispatch } from "react-redux";
@@ -7,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { IdentificationSchema } from "Helpers/Schema/IdentificationSchema";
+import { identificationIMG } from "assets/images";
 
 /* Redux */
 import { useSelector } from "react-redux";
@@ -90,7 +90,7 @@ const Identification = () => {
           </div>
         </div>
         {/* Content Image */}
-        <ContentImage src={image} />
+        <ContentImage src={identificationIMG} />
       </div>
     </>
   );
