@@ -15,8 +15,12 @@ export const IdentificationSchema = yup.object().shape({
     .max(20, "გბვარი არ უნდა აღემატებოდეს 20 სიმბოლოს."),
   email: yup
     .string()
-    .email("გთხოთ მიუთითოთ სწორი ფორმატით.")
-    .required("მეილი სავალდებულოა."),
+    .required("მეილი სავალდებულოა.")
+    .matches(
+      /^[A-Za-z0-9._%+-]+@redberry\.ge$/,
+      "გთხოთ მიუთითოთ სწორი ფორმატით @redberry.ge "
+    )
+    .email("გთხოთ მიუთითოთ სწორი ფორმატით."),
 });
 
 // export const IdentificationSchema = yup
