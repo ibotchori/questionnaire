@@ -135,7 +135,7 @@ const Covid = () => {
                   placeholder={"რიცხვი"}
                   errorMessage={errors.testDate?.message}
                   register={register}
-                  value={antibodies.tets_date}
+                  value={antibodies.test_date}
                 />
                 <Input
                   name="testQuantity"
