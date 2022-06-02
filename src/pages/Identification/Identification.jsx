@@ -18,7 +18,7 @@ import {
 
 const Identification = () => {
   //  Global state (Redux)
-  const { firstName, lastName, email } = useSelector(
+  const { first_name, last_name, email } = useSelector(
     (state) => state.identification
   );
 
@@ -56,7 +56,7 @@ const Identification = () => {
               placeholder={"Your name"}
               errorMessage={errors.firstName?.message}
               reducer={setFirstName}
-              value={firstName}
+              value={first_name}
               register={register}
             />
             <Input
@@ -65,7 +65,7 @@ const Identification = () => {
               placeholder={"Your surname"}
               errorMessage={errors.lastName?.message}
               reducer={setLastName}
-              value={lastName}
+              value={last_name}
               register={register}
             />
             <Input
