@@ -31,6 +31,51 @@ const Advice = () => {
     what_about_meetings_in_live,
     tell_us_your_opinion_about_us,
   } = useSelector((state) => state.advice);
+  const { had_covid, had_antibody_test, covid_sickness_date, antibodies } =
+    useSelector((state) => state.covid);
+  const { first_name, last_name, email } = useSelector(
+    (state) => state.identification
+  );
+  const { had_vaccine, vaccination_stage, i_am_waiting } = useSelector(
+    (state) => state.injection
+  );
+
+  const dataForSubmit = {
+    first_name,
+    last_name,
+    email,
+    had_covid,
+    had_antibody_test,
+    covid_sickness_date,
+    antibodies,
+    had_vaccine: had_vaccine === "yes" ? true : false,
+    vaccination_stage,
+    i_am_waiting,
+    non_formal_meetings,
+    number_of_days_from_office,
+    what_about_meetings_in_live,
+    tell_us_your_opinion_about_us,
+  };
+
+  // Remove properties from object, if value is not defined
+  if (what_about_meetings_in_live === "") {
+    delete dataForSubmit.what_about_meetings_in_live;
+  }
+
+  if (tell_us_your_opinion_about_us === "") {
+    delete dataForSubmit.tell_us_your_opinion_about_us;
+  }
+
+  if (antibodies.test_date === "" || antibodies.number === "") {
+    delete dataForSubmit.antibodies;
+  }
+  if (had_vaccine === "yes") {
+    delete dataForSubmit.i_am_waiting;
+  } else {
+    delete dataForSubmit.vaccination_stage;
+  }
+
+  console.log(dataForSubmit);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
