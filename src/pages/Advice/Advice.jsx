@@ -25,9 +25,12 @@ import { resetIdentification } from "features/identification/identificationSlice
 
 const Advice = () => {
   //  Global state (Redux)
-  const { online, office, assembly, environment } = useSelector(
-    (state) => state.advice
-  );
+  const {
+    non_formal_meetings,
+    number_of_days_from_office,
+    what_about_meetings_in_live,
+    tell_us_your_opinion_about_us,
+  } = useSelector((state) => state.advice);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -45,7 +48,7 @@ const Advice = () => {
 
   useEffect(() => {
     dispatch(setOnline(watch("online")));
-    dispatch(setOffice(+watch("office")));
+    dispatch(setOffice(watch("office")));
     dispatch(setAssembly(watch("assembly")));
     dispatch(setEnvironment(watch("environment")));
   }, [watch()]);
@@ -76,45 +79,55 @@ const Advice = () => {
             <RadioButton
               title="რა სიხშირით შეიძლება გვქონდეს საერთო არაფორმალური ონლაინ შეხვედრები, სადაც ყველა სურვილისამებრ ჩაერთვება?*"
               name="online"
-              value1="კვირაში ორჯერ"
-              value2="კვირაში ერთხელ"
-              value3="ორ კვირაში ერთხელ"
-              value4="თვეში ერთხელ"
-              checked1={online === "კვირაში ორჯერ"}
-              checked2={online === "კვირაში ერთხელ"}
-              checked3={online === "ორ კვირაში ერთხელ"}
-              checked4={online === "თვეში ერთხელ"}
+              label1="კვირაში ორჯერ"
+              label2="კვირაში ერთხელ"
+              label3="ორ კვირაში ერთხელ"
+              label4="თვეში ერთხელ"
+              value1="twice_a_week"
+              value2="once_a_week"
+              value3="once_in_a_two_weeks"
+              value4="once_in_a_month"
+              checked1={non_formal_meetings === "twice_a_week"}
+              checked2={non_formal_meetings === "once_a_week"}
+              checked3={non_formal_meetings === "once_in_a_two_weeks"}
+              checked4={non_formal_meetings === "once_in_a_month"}
               errorMessage={errors.online?.message}
               register={register}
             />
             <RadioButton
               title="კვირაში რამდენი დღე ისურვედი ოფოსიდან მუშაობას?*"
               name="office"
+              label1={0}
+              label2={1}
+              label3={2}
+              label4={3}
+              label5={4}
+              label6={5}
               value1={0}
               value2={1}
               value3={2}
               value4={3}
               value5={4}
               value6={5}
-              checked1={office === 0}
-              checked2={office === 1}
-              checked3={office === 2}
-              checked4={office === 3}
-              checked5={office === 4}
-              checked6={office === 5}
+              checked1={number_of_days_from_office === "0"}
+              checked2={number_of_days_from_office === "1"}
+              checked3={number_of_days_from_office === "2"}
+              checked4={number_of_days_from_office === "3"}
+              checked5={number_of_days_from_office === "4"}
+              checked6={number_of_days_from_office === "5"}
               errorMessage={errors.office?.message}
               register={register}
             />
             <Textarea
               name="assembly"
               title="რას ფიქრობ ფიზიკურ შეკრებაზე?"
-              value={assembly}
+              value={what_about_meetings_in_live}
               register={register}
             />
             <Textarea
               name="environment"
               title="რას ფიქრობ არსებულ გარემოზე: რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?"
-              value={environment}
+              value={tell_us_your_opinion_about_us}
               register={register}
             />
             <div className="flex justify-end py-10">

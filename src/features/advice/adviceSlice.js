@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  online: null,
-  office: null,
-  assembly: "",
-  environment: "",
+  non_formal_meetings: null,
+  number_of_days_from_office: null,
+  what_about_meetings_in_live: "",
+  tell_us_your_opinion_about_us: "",
 };
 
 export const adviceSlice = createSlice({
@@ -12,22 +12,22 @@ export const adviceSlice = createSlice({
   initialState,
   reducers: {
     setOnline: (state, action) => {
-      state.online = action.payload;
+      state.non_formal_meetings = action.payload;
     },
     setOffice: (state, action) => {
-      state.office = action.payload;
+      state.number_of_days_from_office = action.payload;
     },
     setAssembly: (state, action) => {
-      state.assembly = action.payload;
+      state.what_about_meetings_in_live = action.payload;
     },
     setEnvironment: (state, action) => {
-      state.environment = action.payload;
+      state.tell_us_your_opinion_about_us = action.payload;
     },
     resetAdvice: (state) => {
-      state.online = null;
-      state.office = null;
-      state.assembly = "";
-      state.environment = "";
+      state.non_formal_meetings = null;
+      state.number_of_days_from_office = null;
+      state.what_about_meetings_in_live = "";
+      state.tell_us_your_opinion_about_us = "";
     },
   },
 });
