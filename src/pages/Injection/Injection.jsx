@@ -52,8 +52,6 @@ const Injection = () => {
   const submitForm = (data) => {
     reset();
     navigate("/advice");
-
-    console.log(data);
   };
 
   return (

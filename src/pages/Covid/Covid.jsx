@@ -64,8 +64,6 @@ const Covid = () => {
   const submitForm = (data) => {
     reset();
     navigate("/injection");
-
-    console.log(data);
   };
 
   return (
