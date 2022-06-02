@@ -11,6 +11,12 @@ const RadioButton = ({
   value4,
   value5,
   value6,
+  label1,
+  label2,
+  label3,
+  label4,
+  label5,
+  label6,
   checked1,
   checked2,
   checked3,
@@ -35,7 +41,7 @@ const RadioButton = ({
           className="form-check-label inline-block text-gray-800"
           htmlFor="flexRadioDefault1"
         >
-          {value1}
+          {label1}
         </label>
       </div>
       <div className="form-check">
@@ -52,7 +58,7 @@ const RadioButton = ({
           className="form-check-label inline-block text-gray-800"
           htmlFor="flexRadioDefault2"
         >
-          {value2}
+          {label2}
         </label>
       </div>
       {value3 && (
@@ -70,7 +76,7 @@ const RadioButton = ({
             className="form-check-label inline-block text-gray-800"
             htmlFor="flexRadioDefault3"
           >
-            {value3}
+            {label3}
           </label>
         </div>
       )}
@@ -89,7 +95,7 @@ const RadioButton = ({
             className="form-check-label inline-block text-gray-800"
             htmlFor="flexRadioDefault4"
           >
-            {value4}
+            {label4}
           </label>
         </div>
       )}
@@ -108,7 +114,7 @@ const RadioButton = ({
             className="form-check-label inline-block text-gray-800"
             htmlFor="flexRadioDefault5"
           >
-            {value5}
+            {label5}
           </label>
         </div>
       )}
@@ -127,7 +133,7 @@ const RadioButton = ({
             className="form-check-label inline-block text-gray-800"
             htmlFor="flexRadioDefault6"
           >
-            {value6}
+            {label6}
           </label>
         </div>
       )}

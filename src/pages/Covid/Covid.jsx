@@ -20,9 +20,8 @@ import {
 
 const Covid = () => {
   //  Global state (Redux)
-  const { covid, test, covidPeriod, testDate, testQuantity } = useSelector(
-    (state) => state.covid
-  );
+  const { had_covid, had_antibody_test, covid_sickness_date, antibodies } =
+    useSelector((state) => state.covid);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -39,19 +38,19 @@ const Covid = () => {
   });
 
   useEffect(() => {
-    if (watch("covid") === "არა" || watch("covid") === "ახლა მაქვს") {
+    if (watch("covid") === "no" || watch("covid") === "have_right_now") {
       dispatch(setCovid(watch("covid")));
       dispatch(setTest(null));
       dispatch(setCovidPeriod(""));
       dispatch(setTestDate(""));
       dispatch(setTestQuantity(""));
-    } else if (watch("test") === "კი" && watch("covid") === "კი") {
+    } else if (watch("test") === "yes" && watch("covid") === "yes") {
       dispatch(setCovid(watch("covid")));
       dispatch(setTest(watch("test")));
       dispatch(setTestDate(watch("testDate")));
       dispatch(setTestQuantity(watch("testQuantity")));
       dispatch(setCovidPeriod(""));
-    } else if (watch("test") === "არა" && watch("covid") === "კი") {
+    } else if (watch("test") === "no" && watch("covid") === "yes") {
       dispatch(setCovid(watch("covid")));
       dispatch(setTest(watch("test")));
       dispatch(setCovidPeriod(watch("covidPeriod")));
@@ -81,31 +80,36 @@ const Covid = () => {
               name="covid"
               errorMessage={errors.covid?.message}
               register={register}
-              value1="კი"
-              value2="არა"
-              value3="ახლა მაქვს"
-              checked1={covid === "კი"}
-              checked2={covid === "არა"}
-              checked3={covid === "ახლა მაქვს"}
+              label1="კი"
+              label2="არა"
+              label3="ახლა მაქვს"
+              value1="yes"
+              value2="no"
+              value3="have_right_now"
+              checked1={had_covid === "yes"}
+              checked2={had_covid === "no"}
+              checked3={had_covid === "have_right_now"}
             />
-            {covid === "კი" ? (
+            {had_covid === "yes" ? (
               <>
                 <RadioButton
                   title="ანტისხეულების ტესტი გაქვს გაკეთებული?*"
                   name="test"
                   errorMessage={errors.test?.message}
                   register={register}
-                  value1="კი"
-                  value2="არა"
-                  checked1={test === "კი"}
-                  checked2={test === "არა"}
+                  label1="კი"
+                  label2="არა"
+                  value1="yes"
+                  value2="no"
+                  checked1={had_antibody_test === "yes"}
+                  checked2={had_antibody_test === "no"}
                 />
               </>
             ) : (
               ""
             )}
 
-            {test === "არა" && covid === "კი" ? (
+            {had_antibody_test === "no" && had_covid === "yes" ? (
               <Input
                 title={
                   "მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*"
@@ -115,13 +119,13 @@ const Covid = () => {
                 errorMessage={errors.covidPeriod?.message}
                 //errorMessage={"გთხოვთ მიუთითეთ პერიოდი"}
                 register={register}
-                value={covidPeriod}
+                value={covid_sickness_date}
               />
             ) : (
               ""
             )}
 
-            {test === "კი" && covid === "კი" ? (
+            {had_antibody_test === "yes" && had_covid === "yes" ? (
               <>
                 <Input
                   title={
@@ -131,14 +135,14 @@ const Covid = () => {
                   placeholder={"რიცხვი"}
                   errorMessage={errors.testDate?.message}
                   register={register}
-                  value={testDate}
+                  value={antibodies.tets_date}
                 />
                 <Input
                   name="testQuantity"
                   placeholder={"ანტისხეულების რაოდენობა"}
                   errorMessage={errors.testQuantity?.message}
                   register={register}
-                  value={testQuantity}
+                  value={antibodies.number}
                 />
               </>
             ) : (

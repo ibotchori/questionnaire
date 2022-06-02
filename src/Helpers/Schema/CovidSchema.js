@@ -7,13 +7,12 @@ export const CovidSchema = yup
       .string()
       .nullable()
       .when("covid", {
-        is: "კი",
-
+        is: "yes",
         then: yup.string().required("არჩევა სავალდებულოა.").nullable(),
       }),
     // სავალდებულოა მხოლოდ მაშინ თუ covid არის "კი" და test არის "არა"
     covidPeriod: yup.string().when(["test", "covid"], (test, covid) => {
-      if (test === "არა" && covid === "კი")
+      if (test === "no" && covid === "yes")
         return yup
           .string()
           .required("გთხოვთ მიუთითოთ პერიოდი.")

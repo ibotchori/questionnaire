@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  covid: null,
-  test: null,
-  covidPeriod: "",
-  testDate: "",
-  testQuantity: "",
+  had_covid: null,
+  had_antibody_test: null,
+  covid_sickness_date: "",
+  antibodies: {
+    test_date: "",
+    number: "",
+  },
 };
 
 export const covidSlice = createSlice({
@@ -13,26 +15,26 @@ export const covidSlice = createSlice({
   initialState,
   reducers: {
     setCovid: (state, action) => {
-      state.covid = action.payload;
+      state.had_covid = action.payload;
     },
     setTest: (state, action) => {
-      state.test = action.payload;
+      state.had_antibody_test = action.payload;
     },
     setCovidPeriod: (state, action) => {
-      state.covidPeriod = action.payload;
+      state.covid_sickness_date = action.payload;
     },
     setTestDate: (state, action) => {
-      state.testDate = action.payload;
+      state.antibodies.test_date = action.payload;
     },
     setTestQuantity: (state, action) => {
-      state.testQuantity = action.payload;
+      state.antibodies.number = action.payload;
     },
     resetCovid: (state) => {
-      state.covid = null;
-      state.test = null;
-      state.covidPeriod = "";
-      state.testDate = "";
-      state.testQuantity = "";
+      state.had_covid = null;
+      state.had_antibody_test = null;
+      state.covid_sickness_date = "";
+      state.antibodies.test_date = "";
+      state.antibodies.number = "";
     },
   },
 });
