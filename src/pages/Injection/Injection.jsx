@@ -19,7 +19,7 @@ import {
 
 const Injection = () => {
   //  Global state (Redux)
-  const { injection, stage, waitingFor } = useSelector(
+  const { had_vaccine, vaccination_stage, i_am_waiting } = useSelector(
     (state) => state.injection
   );
 
@@ -38,11 +38,11 @@ const Injection = () => {
   });
 
   useEffect(() => {
-    if (watch("injection") === "კი") {
+    if (watch("injection") === "yes") {
       dispatch(setInjection(watch("injection")));
       dispatch(setStage(watch("stage")));
       dispatch(setWaitingFor(null));
-    } else if (watch("injection") === "არა") {
+    } else if (watch("injection") === "no") {
       dispatch(setInjection(watch("injection")));
       dispatch(setWaitingFor(watch("waitingFor")));
       dispatch(setStage(null));
@@ -66,55 +66,64 @@ const Injection = () => {
             <RadioButton
               title="უკვე აცრილი ხარ?*"
               name="injection"
-              value1="კი"
-              value2="არა"
+              label1="კი"
+              label2="არა"
+              value1="yes"
+              value2="no"
               errorMessage={errors.injection?.message}
               register={register}
-              checked1={injection === "კი"}
-              checked2={injection === "არა"}
+              checked1={had_vaccine === "yes"}
+              checked2={had_vaccine === "no"}
             />
-            {injection === "კი" && (
+            {had_vaccine === "yes" && (
               <RadioButton
                 title="აირჩიე რა ეტაპზე ხარ*"
                 name="stage"
-                value1="პირველი დოზა და დარეგისტრირებული ვარ მეორეზე"
-                value2="სრულად აცრილი ვარ"
-                value3="პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე"
+                label1="პირველი დოზა და დარეგისტრირებული ვარ მეორეზე"
+                label2="სრულად აცრილი ვარ"
+                label3="პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე"
+                value1="first_dosage_and_registered_on_the_second"
+                value2="fully_vaccinated"
+                value3="first_dosage_and_not_registered_yet"
                 errorMessage={errors.stage?.message}
                 register={register}
                 checked1={
-                  stage === "პირველი დოზა და დარეგისტრირებული ვარ მეორეზე"
+                  vaccination_stage ===
+                  "first_dosage_and_registered_on_the_second"
                 }
-                checked2={stage === "სრულად აცრილი ვარ"}
+                checked2={vaccination_stage === "fully_vaccinated"}
                 checked3={
-                  stage === "პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე"
+                  vaccination_stage === "first_dosage_and_not_registered_yet"
                 }
               />
             )}
 
-            {stage === "პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე" && (
+            {vaccination_stage === "first_dosage_and_not_registered_yet" && (
               <Info text="რომ არ გადადო, ბარემ ახლავე დარეგისტრირდი" />
             )}
 
-            {injection === "არა" && (
+            {had_vaccine === "no" && (
               <RadioButton
                 title="რას ელოდები?*"
                 name="waitingFor"
-                value1="დარეგისტრირებული ვარ და ველოდები რიცხვს"
-                value2="არ ვგეგმავ"
-                value3="გადატანილი მაქვს და ვგეგმავ აცრას"
+                label1="დარეგისტრირებული ვარ და ველოდები რიცხვს"
+                label2="არ ვგეგმავ"
+                label3="გადატანილი მაქვს და ვგეგმავ აცრას"
+                value1="registered_and_waiting"
+                value2="not_planning"
+                value3="had_covid_and_planning_to_be_vaccinated"
                 errorMessage={errors.waitingFor?.message}
                 register={register}
-                checked1={
-                  waitingFor === "დარეგისტრირებული ვარ და ველოდები რიცხვს"
+                checked1={i_am_waiting === "registered_and_waiting"}
+                checked2={i_am_waiting === "not_planning"}
+                checked3={
+                  i_am_waiting === "had_covid_and_planning_to_be_vaccinated"
                 }
-                checked2={waitingFor === "არ ვგეგმავ"}
-                checked3={waitingFor === "გადატანილი მაქვს და ვგეგმავ აცრას"}
               />
             )}
 
-            {waitingFor === "არ ვგეგმავ" && <Info icon={true} />}
-            {waitingFor === "გადატანილი მაქვს და ვგეგმავ აცრას" && (
+            {i_am_waiting === "not_planning" && <Info icon={true} />}
+            {i_am_waiting === "had_covid_and_planning_to_be_vaccinated" && (
               <Info
                 text={"👉 რეგისტრაციის ბმული"}
                 header="ახალი პროტოკოლით კოვიდის გადატანიდან 1 თვის შემდეგ შეგიძლიათ ვაქცინის გაკეთება.  "

@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  injection: null,
-  stage: null,
-  waitingFor: null,
+  had_vaccine: null,
+  vaccination_stage: null,
+  i_am_waiting: null,
 };
 
 export const injectionSlice = createSlice({
@@ -11,18 +11,18 @@ export const injectionSlice = createSlice({
   initialState,
   reducers: {
     setInjection: (state, action) => {
-      state.injection = action.payload;
+      state.had_vaccine = action.payload;
     },
     setStage: (state, action) => {
-      state.stage = action.payload;
+      state.vaccination_stage = action.payload;
     },
     setWaitingFor: (state, action) => {
-      state.waitingFor = action.payload;
+      state.i_am_waiting = action.payload;
     },
     resetInjection: (state) => {
-      state.injection = null;
-      state.stage = null;
-      state.waitingFor = null;
+      state.had_vaccine = null;
+      state.vaccination_stage = null;
+      state.i_am_waiting = null;
     },
   },
 });

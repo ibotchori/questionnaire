@@ -7,14 +7,14 @@ export const InjectionSchema = yup
       .string()
       .nullable()
       .when("injection", {
-        is: "კი",
+        is: "yes",
         then: yup.string().required("არჩევა სავალდებულოა.").nullable(),
       }),
     waitingFor: yup
       .string()
       .nullable()
       .when("injection", {
-        is: "არა",
+        is: "no",
         then: yup.string().required("არჩევა სავალდებულოა.").nullable(),
       }),
   })
