@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { AdviceSchema } from "Helpers/Schema/AdviceSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { adviceIMG } from "assets/images";
+import axios from "axios";
 
 /* Redux */
 import { useSelector } from "react-redux";
@@ -87,6 +88,12 @@ const Advice = () => {
     delete dataForSubmit.antibodies;
   }
 
+  if (had_covid !== "yes") {
+    delete dataForSubmit.had_antibody_test;
+    delete dataForSubmit.covid_sickness_date;
+    delete dataForSubmit.antibodies;
+  }
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -108,14 +115,23 @@ const Advice = () => {
     dispatch(setEnvironment(watch("environment")));
   }, [watch()]);
 
-  const submitForm = () => {
-    console.log(dataForSubmit);
-    reset();
-    dispatch(resetIdentification());
-    dispatch(resetCovid());
-    dispatch(resetInjection());
-    dispatch(resetAdvice());
-    navigate("/thanks");
+  const submitForm = async () => {
+    try {
+      await axios({
+        method: "POST",
+        url: "https://covid19.devtest.ge/api/create",
+        data: dataForSubmit,
+        headers: { Authorization: "Bearer ..." },
+      });
+      reset();
+      dispatch(resetIdentification());
+      dispatch(resetCovid());
+      dispatch(resetInjection());
+      dispatch(resetAdvice());
+      navigate("/thanks");
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
