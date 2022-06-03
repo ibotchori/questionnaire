@@ -47,7 +47,7 @@ const Advice = () => {
     had_covid,
     had_antibody_test,
     covid_sickness_date,
-    antibodies,
+    antibodies: {},
     had_vaccine: had_vaccine === "yes" ? true : false,
     vaccination_stage,
     i_am_waiting,
@@ -56,6 +56,15 @@ const Advice = () => {
     what_about_meetings_in_live,
     tell_us_your_opinion_about_us,
   };
+
+  // Add property in antibodies object, only if it is not empty
+  if (antibodies.test_date !== "") {
+    dataForSubmit.antibodies.test_date = antibodies.test_date;
+  }
+
+  if (antibodies.number !== "") {
+    dataForSubmit.antibodies.number = antibodies.number;
+  }
 
   // Remove properties from object, if value is not defined
   if (what_about_meetings_in_live === "") {
@@ -66,16 +75,17 @@ const Advice = () => {
     delete dataForSubmit.tell_us_your_opinion_about_us;
   }
 
-  if (antibodies.test_date === "" || antibodies.number === "") {
-    delete dataForSubmit.antibodies;
-  }
   if (had_vaccine === "yes") {
     delete dataForSubmit.i_am_waiting;
   } else {
     delete dataForSubmit.vaccination_stage;
   }
 
-  console.log(dataForSubmit);
+  if (had_antibody_test === "yes") {
+    delete dataForSubmit.covid_sickness_date;
+  } else {
+    delete dataForSubmit.antibodies;
+  }
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -99,6 +109,7 @@ const Advice = () => {
   }, [watch()]);
 
   const submitForm = () => {
+    console.log(dataForSubmit);
     reset();
     dispatch(resetIdentification());
     dispatch(resetCovid());
