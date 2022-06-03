@@ -134,6 +134,7 @@ const Covid = () => {
                   errorMessage={errors.testDate?.message}
                   register={register}
                   value={antibodies.test_date}
+                  type="date"
                 />
                 <Input
                   name="testQuantity"
@@ -141,6 +142,7 @@ const Covid = () => {
                   errorMessage={errors.testQuantity?.message}
                   register={register}
                   value={antibodies.number}
+                  type="number"
                 />
               </>
             ) : (
