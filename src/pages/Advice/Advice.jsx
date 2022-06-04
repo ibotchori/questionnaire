@@ -19,6 +19,7 @@ import {
   setAssembly,
   setEnvironment,
   resetAdvice,
+  submitData,
 } from "features/advice/adviceSlice";
 import { resetCovid } from "features/covid/covidSlice";
 import { resetInjection } from "features/injection/injectionSlice";
@@ -31,6 +32,7 @@ const Advice = () => {
     number_of_days_from_office,
     what_about_meetings_in_live,
     tell_us_your_opinion_about_us,
+    status,
   } = useSelector((state) => state.advice);
   const { had_covid, had_antibody_test, covid_sickness_date, antibodies } =
     useSelector((state) => state.covid);
@@ -116,21 +118,13 @@ const Advice = () => {
   }, [watch()]);
 
   const submitForm = async () => {
-    try {
-      await axios({
-        method: "POST",
-        url: "https://covid19.devtest.ge/api/create",
-        data: dataForSubmit,
-        headers: { Authorization: "Bearer ..." },
-      });
-      reset();
+    dispatch(submitData(dataForSubmit));
+    if (status === "Created") {
+      navigate("/thanks");
       dispatch(resetIdentification());
       dispatch(resetCovid());
       dispatch(resetInjection());
       dispatch(resetAdvice());
-      navigate("/thanks");
-    } catch (error) {
-      console.log(error);
     }
   };
   return (
