@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Button from "./components/Button/Button.jsx";
 import { RadioButton, ContentImage } from "components";
+import Loader from "./components/Loader/Loader.js";
 import Textarea from "./components/Textarea/Textarea";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -117,18 +118,29 @@ const Advice = () => {
     dispatch(setEnvironment(watch("environment")));
   }, [watch()]);
 
+  const navigatePage = (path) => {
+    navigate(path);
+    dispatch(resetIdentification());
+    dispatch(resetCovid());
+    dispatch(resetInjection());
+    dispatch(resetAdvice());
+    reset();
+  };
+
+  useEffect(() => {
+    if (status === "fulfilled") {
+      navigatePage("/thanks");
+    } else if (status === "rejected") {
+      navigatePage("/error");
+    }
+  }, [status]);
+
   const submitForm = async () => {
     dispatch(submitData(dataForSubmit));
-    if (status === "Created") {
-      navigate("/thanks");
-      dispatch(resetIdentification());
-      dispatch(resetCovid());
-      dispatch(resetInjection());
-      dispatch(resetAdvice());
-    }
   };
   return (
     <>
+      {status === "pending" && <Loader />}
       {/* Content */}
       <div className="flex justify-start lg:justify-between px-5 sm:px-20 md:px-30 md:pr-20  lg:px-20  ">
         {/* Content Text */}

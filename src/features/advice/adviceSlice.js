@@ -44,6 +44,8 @@ export const adviceSlice = createSlice({
       state.number_of_days_from_office = null;
       state.what_about_meetings_in_live = "";
       state.tell_us_your_opinion_about_us = "";
+      state.status = "";
+      state.error = "";
     },
   },
   extraReducers: {
@@ -51,7 +53,7 @@ export const adviceSlice = createSlice({
       state.status = "pending";
     },
     [submitData.fulfilled]: (state, action) => {
-      state.status = action.payload;
+      state.status = "fulfilled";
     },
     [submitData.rejected]: (state, action) => {
       state.status = "rejected";
