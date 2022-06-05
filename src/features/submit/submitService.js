@@ -46,8 +46,8 @@ const SubmitData = async (dataForSubmit) => {
   return results.statusText;
 };
 
-const submitSlice = {
+const submitService = {
   SubmitData,
 };
 
-export default submitSlice;
+export default submitService;
