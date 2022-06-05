@@ -19,20 +19,6 @@ const Pagination = () => {
         break;
     }
   };
-  const nextButtonClick = () => {
-    switch (location.pathname) {
-      case "/identification":
-        navigate("/covid");
-        break;
-      case "/covid":
-        navigate("/injection");
-        break;
-
-      default:
-        navigate("/advice");
-        break;
-    }
-  };
 
   // generate form id by location
   const [formId, setFormId] = useState("");
