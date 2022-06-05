@@ -46,8 +46,8 @@ const SubmitData = async (dataForSubmit) => {
   return results.statusText;
 };
 
-const adviceService = {
+const submitSlice = {
   SubmitData,
 };
 
-export default adviceService;
+export default submitSlice;

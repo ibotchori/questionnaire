@@ -20,8 +20,8 @@ import {
   setAssembly,
   setEnvironment,
   resetAdvice,
-  submitData,
 } from "features/advice/adviceSlice";
+import { submitData, resetStatus } from "features/submit/submitSlice";
 import { resetCovid } from "features/covid/covidSlice";
 import { resetInjection } from "features/injection/injectionSlice";
 import { resetIdentification } from "features/identification/identificationSlice";
@@ -33,7 +33,6 @@ const Advice = () => {
     number_of_days_from_office,
     what_about_meetings_in_live,
     tell_us_your_opinion_about_us,
-    status,
   } = useSelector((state) => state.advice);
   const { had_covid, had_antibody_test, covid_sickness_date, antibodies } =
     useSelector((state) => state.covid);
@@ -43,6 +42,7 @@ const Advice = () => {
   const { had_vaccine, vaccination_stage, i_am_waiting } = useSelector(
     (state) => state.injection
   );
+  const { status } = useSelector((state) => state.submit);
 
   const dataForSubmit = {
     first_name,
@@ -124,6 +124,7 @@ const Advice = () => {
     dispatch(resetCovid());
     dispatch(resetInjection());
     dispatch(resetAdvice());
+    dispatch(resetStatus());
     reset();
   };
 
