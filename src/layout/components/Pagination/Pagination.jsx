@@ -46,6 +46,7 @@ const Pagination = () => {
     <div className=" flex justify-center  text-center bottom-0 pt-20  w-full pb-20 ">
       <div className="flex  w-32  justify-between">
         <div
+          id="prevButton"
           onClick={prevButtonClick}
           className={
             location.pathname === "/identification"
@@ -69,6 +70,7 @@ const Pagination = () => {
         </div>
 
         <button
+          id="nextButton"
           type="submit"
           form={formId}
           className={
