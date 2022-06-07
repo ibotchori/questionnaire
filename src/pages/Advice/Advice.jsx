@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Button from "./components/Button/Button.jsx";
 import { RadioButton, ContentImage } from "components";
-import Loader from "./components/Loader/Loader.js";
+import Loader from "./components/Loader/Loader.jsx";
 import Textarea from "./components/Textarea/Textarea";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
