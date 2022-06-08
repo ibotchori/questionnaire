@@ -64,6 +64,8 @@ const Injection = () => {
             <RadioButton
               title="უკვე აცრილი ხარ?*"
               name="injection"
+              id_1="vaccineYes"
+              id_2="vaccineNo"
               label1="კი"
               label2="არა"
               value1="yes"
@@ -77,6 +79,9 @@ const Injection = () => {
               <RadioButton
                 title="აირჩიე რა ეტაპზე ხარ*"
                 name="stage"
+                id_1="registered"
+                id_2="fullyVaccinated"
+                id_3="notRegistered"
                 label1="პირველი დოზა და დარეგისტრირებული ვარ მეორეზე"
                 label2="სრულად აცრილი ვარ"
                 label3="პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე"
@@ -104,6 +109,9 @@ const Injection = () => {
               <RadioButton
                 title="რას ელოდები?*"
                 name="waitingFor"
+                id_1="registeredAndWaiting"
+                id_2="notPlanning"
+                id_3="hadCovid"
                 label1="დარეგისტრირებული ვარ და ველოდები რიცხვს"
                 label2="არ ვგეგმავ"
                 label3="გადატანილი მაქვს და ვგეგმავ აცრას"
