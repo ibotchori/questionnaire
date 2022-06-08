@@ -12,7 +12,7 @@ describe("identification", () => {
     cy.url().should("include", "identification");
   });
 
-  it("user can't go to next page with incorrect data", () => {
+  it("user can't go to next page with invalid data", () => {
     /* First Name */
     cy.get("#firstName").type("a");
     cy.get("#nextButton").click();
@@ -53,7 +53,7 @@ describe("identification", () => {
       "be.visible"
     );
   });
-  it("user can go to next page with correct data", () => {
+  it("user can go to next page with valid data", () => {
     cy.get("#firstName").type("Kosta");
     cy.get("#lastName").type("Miqautadze");
     cy.get("#email").type("kosta@redberry.ge");

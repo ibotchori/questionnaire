@@ -17,6 +17,12 @@ const RadioButton = ({
   label4,
   label5,
   label6,
+  id_1,
+  id_2,
+  id_3,
+  id_4,
+  id_5,
+  id_6,
   checked1,
   checked2,
   checked3,
@@ -33,7 +39,7 @@ const RadioButton = ({
           type="radio"
           name={name}
           value={value1}
-          id="flexRadioDefault1"
+          id={id_1}
           {...register(name)}
           defaultChecked={checked1}
         />
@@ -50,7 +56,7 @@ const RadioButton = ({
           type="radio"
           name={name}
           value={value2}
-          id="flexRadioDefault2"
+          id={id_2}
           {...register(name)}
           defaultChecked={checked2}
         />
@@ -68,7 +74,7 @@ const RadioButton = ({
             type="radio"
             name={name}
             value={value3}
-            id="flexRadioDefault3"
+            id={id_3}
             {...register(name)}
             defaultChecked={checked3}
           />
@@ -86,7 +92,7 @@ const RadioButton = ({
             className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer ml-3"
             type="radio"
             name={name}
-            id="flexRadioDefault4"
+            id={id_4}
             value={value4}
             {...register(name)}
             defaultChecked={checked4}
@@ -105,7 +111,7 @@ const RadioButton = ({
             className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer ml-3"
             type="radio"
             name={name}
-            id="flexRadioDefault5"
+            id={id_5}
             value={value5}
             {...register(name)}
             defaultChecked={checked5}
@@ -124,7 +130,7 @@ const RadioButton = ({
             className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer ml-3"
             type="radio"
             name={name}
-            id="flexRadioDefault6"
+            id={id_6}
             value={value6}
             {...register(name)}
             defaultChecked={checked6}

@@ -78,6 +78,9 @@ const Covid = () => {
               name="covid"
               errorMessage={errors.covid?.message}
               register={register}
+              id_1="covidYes"
+              id_2="covidNo"
+              id_3="covidNow"
               label1="კი"
               label2="არა"
               label3="ახლა მაქვს"
@@ -95,6 +98,8 @@ const Covid = () => {
                   name="test"
                   errorMessage={errors.test?.message}
                   register={register}
+                  id_1="testYes"
+                  id_2="testNo"
                   label1="კი"
                   label2="არა"
                   value1="yes"
