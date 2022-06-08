@@ -158,6 +158,10 @@ const Advice = () => {
             <RadioButton
               title="რა სიხშირით შეიძლება გვქონდეს საერთო არაფორმალური ონლაინ შეხვედრები, სადაც ყველა სურვილისამებრ ჩაერთვება?*"
               name="online"
+              id_1="twice_a_week"
+              id_2="once_a_week"
+              id_3="once_in_a_two_weeks"
+              id_4="once_in_a_month"
               label1="კვირაში ორჯერ"
               label2="კვირაში ერთხელ"
               label3="ორ კვირაში ერთხელ"
@@ -176,6 +180,7 @@ const Advice = () => {
             <RadioButton
               title="კვირაში რამდენი დღე ისურვედი ოფოსიდან მუშაობას?*"
               name="office"
+              id_2="2"
               label1={0}
               label2={1}
               label3={2}
@@ -199,12 +204,14 @@ const Advice = () => {
             />
             <Textarea
               name="assembly"
+              id="assembly"
               title="რას ფიქრობ ფიზიკურ შეკრებაზე?"
               value={what_about_meetings_in_live}
               register={register}
             />
             <Textarea
               name="environment"
+              id="environment"
               title="რას ფიქრობ არსებულ გარემოზე: რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?"
               value={tell_us_your_opinion_about_us}
               register={register}

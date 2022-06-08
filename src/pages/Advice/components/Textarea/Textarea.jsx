@@ -1,8 +1,8 @@
 import React from "react";
 
-const Textarea = ({ title, name, register, value }) => {
+const Textarea = ({ title, name, register, value, id }) => {
   return (
-    <div className="max-w-lg">
+    <div id={id} className="max-w-lg">
       <p className="pt-6 pb-4 font-bold ">{title}</p>
       <textarea
         id="w3review"
