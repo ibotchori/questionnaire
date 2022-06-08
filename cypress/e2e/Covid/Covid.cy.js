@@ -10,12 +10,18 @@ describe("covid", () => {
     cy.get("#covidYes").click();
     cy.contains("ანტისხეულების ტესტი გაქვს გაკეთებული?*").should("be.visible");
     cy.get("#testNo").click();
+    cy.contains(
+      "მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*"
+    ).should("be.visible");
     cy.get("#nextButton").click();
     cy.contains("გთხოვთ მიუთითოთ პერიოდი.").should("be.visible");
   });
   it("user can't go to next page with invalid data", () => {
     cy.get("#covidYes").click();
     cy.get("#testNo").click();
+    cy.contains(
+      "მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*"
+    ).should("be.visible");
     cy.get("#covidPeriod").type("12.22.22");
     cy.get("#nextButton").click();
     cy.contains("გთხოვთ მიუთითოთ დდ/თთ/წწ ფორმატით").should("be.visible");
@@ -31,6 +37,9 @@ describe("covid", () => {
     cy.get("#prevButton").click();
     cy.get("#covidYes").click();
     cy.get("#testYes").click();
+    cy.contains(
+      "თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა*"
+    ).should("be.visible");
     cy.get("#nextButton").click();
     cy.url().should("include", "injection");
     cy.get("#prevButton").click();
@@ -43,6 +52,9 @@ describe("covid", () => {
     cy.url().should("include", "injection");
     cy.get("#prevButton").click();
     cy.get("#testNo").click();
+    cy.contains(
+      "მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) როდის გქონდა Covid-19*"
+    ).should("be.visible");
     cy.get("#covidPeriod").type("12/05/22");
     cy.get("#nextButton").click();
     cy.url().should("include", "injection");
