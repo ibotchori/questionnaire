@@ -49,6 +49,9 @@ Cypress.Commands.add("fill_advice", () => {
   cy.get("#2").click();
   cy.get("#assembly").type("test");
   cy.get("#environment").type("test");
+  cy.intercept("POST", "https://covid19.devtest.ge/api/*", {
+    statusCode: 201,
+  });
   cy.get("#submit").click();
   cy.get("#loader").should("be.visible");
   cy.url().should("include", "thanks");
