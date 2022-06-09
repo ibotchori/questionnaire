@@ -58,5 +58,5 @@ Cypress.Commands.add("fill_advice", () => {
   // cy.get("#loader").should("be.visible");
   cy.url().should("include", "thanks");
   cy.contains("მადლობა").should("be.visible");
-  cy.url().should("not.be", "thanks");
+  cy.url({ timeout: 3000 }).should("not.include", "thanks");
 });
