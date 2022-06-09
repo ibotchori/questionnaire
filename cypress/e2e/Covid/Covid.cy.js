@@ -58,5 +58,8 @@ describe("covid", () => {
     cy.get("#covidPeriod").type("12/05/22");
     cy.get("#nextButton").click();
     cy.url().should("include", "injection");
+    cy.get("#prevButton").click();
+    cy.get("#prevButton").click();
+    cy.url().should("include", "identification");
   });
 });

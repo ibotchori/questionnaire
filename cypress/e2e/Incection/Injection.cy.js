@@ -44,7 +44,7 @@ describe("injection", () => {
     cy.url().should("include", "advice");
     cy.get("#prevButton").click();
     cy.get("#notPlanning").click();
-    cy.contains("👉 https://booking.moh.gov.ge/").should("be.visible");
+    cy.get("#info").should("be.visible");
     cy.get("#nextButton").click();
     cy.url().should("include", "advice");
     cy.get("#prevButton").click();

@@ -21,6 +21,8 @@ it("user can't submit with invalid data", () => {
   cy.get("#loader").should("be.visible");
   cy.url().should("include", "error");
   cy.contains("დაფიქსირდა შეცდომა").should("be.visible");
+  cy.contains("404").should("be.visible");
   cy.contains("მთავარი გვერდი").should("be.visible");
+  cy.get("#homeButton").click();
   cy.url().should("not.be", "error");
 });
