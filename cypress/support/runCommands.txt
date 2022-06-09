@@ -1,0 +1,5 @@
+/* RUN test */
+npx cypress open
+
+/* Run all test files */
+npx cypress run --headed

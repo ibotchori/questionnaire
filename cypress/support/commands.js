@@ -54,7 +54,8 @@ Cypress.Commands.add("fill_advice", () => {
     statusCode: 201,
   });
   cy.get("#submit").click();
-  cy.get("#loader").should("be.visible");
+  /* without API call loader not shown */
+  // cy.get("#loader").should("be.visible");
   cy.url().should("include", "thanks");
   cy.contains("მადლობა").should("be.visible");
   cy.url().should("not.be", "thanks");
