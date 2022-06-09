@@ -23,3 +23,35 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("fill_identification", () => {
+  cy.get("#firstName").type("Kosta");
+  cy.get("#lastName").type("Miqautadze");
+  cy.get("#email").type("kosta@redberry.ge");
+  cy.get("#nextButton").click();
+  cy.url().should("include", "covid");
+});
+Cypress.Commands.add("fill_covid", () => {
+  cy.get("#covidNo").click();
+  cy.get("#nextButton").click();
+  cy.url().should("include", "injection");
+});
+Cypress.Commands.add("fill_injection", () => {
+  cy.contains("უკვე აცრილი ხარ?*").should("be.visible");
+  cy.get("#vaccineYes").click();
+  cy.contains("აირჩიე რა ეტაპზე ხარ*").should("be.visible");
+  cy.get("#registered").click();
+  cy.get("#nextButton").click();
+  cy.url().should("include", "advice");
+});
+Cypress.Commands.add("fill_advice", () => {
+  cy.get("#twice_a_week").click();
+  cy.get("#2").click();
+  cy.get("#assembly").type("test");
+  cy.get("#environment").type("test");
+  cy.get("#submit").click();
+  cy.get("#loader").should("be.visible");
+  cy.url().should("include", "thanks");
+  cy.contains("მადლობა").should("be.visible");
+  cy.url().should("not.be", "thanks");
+});
